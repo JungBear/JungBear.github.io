@@ -1,5 +1,2366 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>JungBear&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="JungBear&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="JungBear&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="JungBear&#039;s Blog"><meta property="og:url" content="https://jungbear.github.io/"><meta property="og:site_name" content="JungBear&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://jungbear.github.io/img/og_image.png"><meta property="article:author" content="JungBear"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://JungBear.github.io"},"headline":"JungBear's Blog","image":["https://jungbear.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JungBear"},"publisher":{"@type":"Organization","name":"JungBear's Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">JungBear&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-27T00:00:00.000Z" title="2022. 6. 27. 오전 9:00:00">2022-06-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-28T08:16:22.432Z" title="2022. 6. 28. 오후 5:16:22">2022-06-28</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">14 minutes read (About 2087 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/27/day0627/">Day-7 Python And Basic Grammar</a></h1><div class="content"><ul>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>JungBear&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="JungBear&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="JungBear&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="JungBear&#039;s Blog"><meta property="og:url" content="https://jungbear.github.io/"><meta property="og:site_name" content="JungBear&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://jungbear.github.io/img/og_image.png"><meta property="article:author" content="JungBear"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://JungBear.github.io"},"headline":"JungBear's Blog","image":["https://jungbear.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JungBear"},"publisher":{"@type":"Organization","name":"JungBear's Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">JungBear&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-28T00:00:00.000Z" title="2022. 6. 28. 오전 9:00:00">2022-06-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-05T05:34:36.031Z" title="2022. 7. 5. 오후 2:34:36">2022-07-05</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Assignment/">Assignment</a></span><span class="level-item">30 minutes read (About 4449 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/28/Pandas_assignment/">Pandas 10minute</a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<h2 id="객체-생성"><a href="#객체-생성" class="headerlink" title="객체 생성"></a>객체 생성</h2><ul>
+<li>Series : 기본 정수 인덱스를 생성하도록 값 목록을 전달하여 생성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,np.nan,<span class="number">6</span>,<span class="number">8</span>])</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0    1.0
+1    3.0
+2    5.0
+3    NaN
+4    6.0
+5    8.0
+dtype: float64
+</code></pre>
+<ul>
+<li>DataFrame : 여러 인덱스와 레이블이 지정된 열이 있는 NumPy 배열을 전달하여 생성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dates = pd.date_range(<span class="string">&quot;20130101&quot;</span>, periods = <span class="number">6</span>)</span><br><span class="line">dates</span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">6</span>,<span class="number">4</span>), index=dates, columns=<span class="built_in">list</span>(<span class="string">&quot;ABCD&quot;</span>)) <span class="comment">#6행 4열</span></span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C         D
+2013-01-01  0.865728  0.292457  1.067028 -0.253106
+2013-01-02 -1.909402  1.527000 -0.386110 -0.500735
+2013-01-03  0.075965  1.552591  1.350081 -1.812949
+2013-01-04 -0.887034 -0.790107 -1.427116  0.506210
+2013-01-05 -0.405688  0.656769  2.117183 -0.219086
+2013-01-06 -0.425787  1.433215  0.707955 -1.778100
+</code></pre>
+<ul>
+<li>시리즈와 같은 구조로 변환할 수 있는 객체 사전을 전달하여 생성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;A&quot;</span> : <span class="number">1.0</span>,</span><br><span class="line">        <span class="string">&quot;B&quot;</span> : pd.Timestamp(<span class="string">&quot;20130102&quot;</span>),</span><br><span class="line">        <span class="string">&quot;C&quot;</span> : pd.Series(<span class="number">1</span>, index=<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">4</span>)), dtype=<span class="string">&#x27;float32&#x27;</span>),</span><br><span class="line">        <span class="string">&quot;D&quot;</span> : np.array([<span class="number">3</span>] * <span class="number">4</span>, dtype=<span class="string">&#x27;int32&#x27;</span>),</span><br><span class="line">        <span class="string">&quot;E&quot;</span> : pd.Categorical([<span class="string">&quot;test&quot;</span>,<span class="string">&quot;train&quot;</span>, <span class="string">&quot;test&quot;</span>, <span class="string">&quot;train&quot;</span>]),</span><br><span class="line">        <span class="string">&quot;F&quot;</span> : <span class="string">&quot;foo&quot;</span>,   </span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(df2)</span><br><span class="line"><span class="built_in">print</span>(df2.dtypes)</span><br></pre></td></tr></table></figure>
+
+<pre><code>     A          B    C  D      E    F
+0  1.0 2013-01-02  1.0  3   test  foo
+1  1.0 2013-01-02  1.0  3  train  foo
+2  1.0 2013-01-02  1.0  3   test  foo
+3  1.0 2013-01-02  1.0  3  train  foo
+A           float64
+B    datetime64[ns]
+C           float32
+D             int32
+E          category
+F            object
+dtype: object
+</code></pre>
+<h2 id="데이터-보기"><a href="#데이터-보기" class="headerlink" title="데이터 보기"></a>데이터 보기</h2><h3 id="데이터의-상단-및-하단-행-보기"><a href="#데이터의-상단-및-하단-행-보기" class="headerlink" title="데이터의 상단 및 하단 행 보기"></a>데이터의 상단 및 하단 행 보기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.head())</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C         D
+2013-01-01  0.865728  0.292457  1.067028 -0.253106
+2013-01-02 -1.909402  1.527000 -0.386110 -0.500735
+2013-01-03  0.075965  1.552591  1.350081 -1.812949
+2013-01-04 -0.887034 -0.790107 -1.427116  0.506210
+2013-01-05 -0.405688  0.656769  2.117183 -0.219086
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.tail(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C         D
+2013-01-04 -0.887034 -0.790107 -1.427116  0.506210
+2013-01-05 -0.405688  0.656769  2.117183 -0.219086
+2013-01-06 -0.425787  1.433215  0.707955 -1.778100
+</code></pre>
+<h3 id="인덱스-열-표시"><a href="#인덱스-열-표시" class="headerlink" title="인덱스, 열 표시"></a>인덱스, 열 표시</h3><ul>
+<li>인덱스 표시</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.index)</span><br></pre></td></tr></table></figure>
+
+<pre><code>DatetimeIndex([&#39;2013-01-01&#39;, &#39;2013-01-02&#39;, &#39;2013-01-03&#39;, &#39;2013-01-04&#39;,
+               &#39;2013-01-05&#39;, &#39;2013-01-06&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</code></pre>
+<ul>
+<li>열 표시</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.columns)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], dtype=&#39;object&#39;)
+</code></pre>
+<ul>
+<li>Numpy를 사용하여 차원형식으로 표현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.to_numpy())</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[ 0.86572765  0.29245708  1.06702782 -0.25310621]
+ [-1.9094016   1.5270004  -0.38610994 -0.5007352 ]
+ [ 0.07596547  1.5525908   1.35008097 -1.81294929]
+ [-0.88703364 -0.79010667 -1.42711619  0.50621017]
+ [-0.40568757  0.65676859  2.11718261 -0.21908563]
+ [-0.42578651  1.4332152   0.70795455 -1.77810017]]
+</code></pre>
+<ul>
+<li>type이 여러가지인경우 상대적으로 비용이 많이든다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df2.to_numpy())</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[1.0 Timestamp(&#39;2013-01-02 00:00:00&#39;) 1.0 3 &#39;test&#39; &#39;foo&#39;]
+ [1.0 Timestamp(&#39;2013-01-02 00:00:00&#39;) 1.0 3 &#39;train&#39; &#39;foo&#39;]
+ [1.0 Timestamp(&#39;2013-01-02 00:00:00&#39;) 1.0 3 &#39;test&#39; &#39;foo&#39;]
+ [1.0 Timestamp(&#39;2013-01-02 00:00:00&#39;) 1.0 3 &#39;train&#39; &#39;foo&#39;]]
+</code></pre>
+<h3 id="통계요약"><a href="#통계요약" class="headerlink" title="통계요약"></a>통계요약</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.describe())</span><br></pre></td></tr></table></figure>
+
+<pre><code>              A         B         C         D
+count  6.000000  6.000000  6.000000  6.000000
+mean  -0.447703  0.778654  0.571503 -0.676294
+std    0.930715  0.927330  1.278356  0.929863
+min   -1.909402 -0.790107 -1.427116 -1.812949
+25%   -0.771722  0.383535 -0.112594 -1.458759
+50%   -0.415737  1.044992  0.887491 -0.376921
+75%   -0.044448  1.503554  1.279318 -0.227591
+max    0.865728  1.552591  2.117183  0.506210
+</code></pre>
+<h3 id="데이터-전치"><a href="#데이터-전치" class="headerlink" title="데이터 전치"></a>데이터 전치</h3><ul>
+<li>행과 열을 서로 바꿈</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.T)</span><br></pre></td></tr></table></figure>
+
+<pre><code>   2013-01-01  2013-01-02  2013-01-03  2013-01-04  2013-01-05  2013-01-06
+A    0.865728   -1.909402    0.075965   -0.887034   -0.405688   -0.425787
+B    0.292457    1.527000    1.552591   -0.790107    0.656769    1.433215
+C    1.067028   -0.386110    1.350081   -1.427116    2.117183    0.707955
+D   -0.253106   -0.500735   -1.812949    0.506210   -0.219086   -1.778100
+</code></pre>
+<h3 id="행으로-정렬"><a href="#행으로-정렬" class="headerlink" title="행으로 정렬"></a>행으로 정렬</h3><ul>
+<li>index를 기준으로 정렬</li>
+<li>기본 방식은 오름차순<ul>
+<li>axis &#x3D; 1 : 내림차순</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.sort_index(axis=<span class="number">1</span>, ascending=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   D         C         B         A
+2013-01-01 -0.253106  1.067028  0.292457  0.865728
+2013-01-02 -0.500735 -0.386110  1.527000 -1.909402
+2013-01-03 -1.812949  1.350081  1.552591  0.075965
+2013-01-04  0.506210 -1.427116 -0.790107 -0.887034
+2013-01-05 -0.219086  2.117183  0.656769 -0.405688
+2013-01-06 -1.778100  0.707955  1.433215 -0.425787
+</code></pre>
+<h3 id="열로-정렬"><a href="#열로-정렬" class="headerlink" title="열로 정렬"></a>열로 정렬</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.sort_values(by=<span class="string">&quot;B&quot;</span>)) <span class="comment"># B를 기준으로 오름차순</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C         D
+2013-01-04 -0.887034 -0.790107 -1.427116  0.506210
+2013-01-01  0.865728  0.292457  1.067028 -0.253106
+2013-01-05 -0.405688  0.656769  2.117183 -0.219086
+2013-01-06 -0.425787  1.433215  0.707955 -1.778100
+2013-01-02 -1.909402  1.527000 -0.386110 -0.500735
+2013-01-03  0.075965  1.552591  1.350081 -1.812949
+</code></pre>
+<h2 id="인덱싱"><a href="#인덱싱" class="headerlink" title="인덱싱"></a>인덱싱</h2><h3 id="단일-열"><a href="#단일-열" class="headerlink" title="단일 열"></a>단일 열</h3><ul>
+<li>결괏값이 Series로 나온다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[<span class="string">&quot;A&quot;</span>]) </span><br></pre></td></tr></table></figure>
+
+<pre><code>2013-01-01    0.865728
+2013-01-02   -1.909402
+2013-01-03    0.075965
+2013-01-04   -0.887034
+2013-01-05   -0.405688
+2013-01-06   -0.425787
+Freq: D, Name: A, dtype: float64
+</code></pre>
+<ul>
+<li>행을 슬라이스</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[<span class="number">0</span>:<span class="number">3</span>]) <span class="comment"># 1~3행 까지 인덱싱</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C         D
+2013-01-01  0.865728  0.292457  1.067028 -0.253106
+2013-01-02 -1.909402  1.527000 -0.386110 -0.500735
+2013-01-03  0.075965  1.552591  1.350081 -1.812949
+</code></pre>
+<h3 id="인덱스를-기준으로-해당-인덱스에-포함되는-열값-추출"><a href="#인덱스를-기준으로-해당-인덱스에-포함되는-열값-추출" class="headerlink" title="인덱스를 기준으로 해당 인덱스에 포함되는 열값 추출"></a>인덱스를 기준으로 해당 인덱스에 포함되는 열값 추출</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[dates[<span class="number">0</span>]]) <span class="comment"># 1행의 값을 열별로 구분</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>A    0.865728
+B    0.292457
+C    1.067028
+D   -0.253106
+Name: 2013-01-01 00:00:00, dtype: float64
+</code></pre>
+<ul>
+<li>다중 열 추출</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[:, [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>]]) <span class="comment"># A와 B열을 추출</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B
+2013-01-01  0.865728  0.292457
+2013-01-02 -1.909402  1.527000
+2013-01-03  0.075965  1.552591
+2013-01-04 -0.887034 -0.790107
+2013-01-05 -0.405688  0.656769
+2013-01-06 -0.425787  1.433215
+</code></pre>
+<ul>
+<li>행의 범위안의 원하는 열 추출</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[<span class="string">&quot;20130102&quot;</span>:<span class="string">&quot;20130104&quot;</span>,[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>]]) </span><br><span class="line"><span class="comment"># 행을 슬라이싱하여 해당 행에 포함된 A,B열의 값을 추출</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B
+2013-01-02 -1.909402  1.527000
+2013-01-03  0.075965  1.552591
+2013-01-04 -0.887034 -0.790107
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[<span class="string">&quot;20130102&quot;</span>,[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>]]) </span><br><span class="line"><span class="comment"># 해당되는 행의 크기 축소</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>A   -1.909402
+B    1.527000
+Name: 2013-01-02 00:00:00, dtype: float64
+</code></pre>
+<ul>
+<li>스칼라값 얻기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[dates[<span class="number">0</span>],<span class="string">&quot;A&quot;</span>])</span><br><span class="line"><span class="comment"># 1행과 A열에 포함되는 값 추출</span></span><br><span class="line"><span class="comment"># = df.at[dates[0],&quot;A&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>0.8657276483198485
+</code></pre>
+<h3 id="위치별-추출"><a href="#위치별-추출" class="headerlink" title="위치별 추출"></a>위치별 추출</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">3</span>]) <span class="comment"># 3번째 index에 해당하는 값 추출</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>A   -0.887034
+B   -0.790107
+C   -1.427116
+D    0.506210
+Name: 2013-01-04 00:00:00, dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">3</span>:<span class="number">5</span>, <span class="number">0</span>:<span class="number">2</span>]) <span class="comment"># 3~4번째 index에 해당하는 0~1번째 열</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B
+2013-01-04 -0.887034 -0.790107
+2013-01-05 -0.405688  0.656769
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.iloc[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>],[<span class="number">0</span>,<span class="number">2</span>]]) <span class="comment"># 1,2,4번째 행의 0,2 번째 열 추출</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         C
+2013-01-02 -1.909402 -0.386110
+2013-01-03  0.075965  1.350081
+2013-01-05 -0.405688  2.117183
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">1</span>,<span class="number">1</span>]) <span class="comment"># 1행 1열값 추출</span></span><br><span class="line"><span class="comment"># = df.iat[1,1]</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>1.5270003991486507
+</code></pre>
+<h3 id="Boolean-indexing"><a href="#Boolean-indexing" class="headerlink" title="Boolean indexing"></a>Boolean indexing</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[df[<span class="string">&quot;A&quot;</span>] &gt; <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C         D
+2013-01-01  0.865728  0.292457  1.067028 -0.253106
+2013-01-03  0.075965  1.552591  1.350081 -1.812949
+</code></pre>
+<ul>
+<li>isin()필터링 사용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df2 = df.copy()</span><br><span class="line">df2[<span class="string">&quot;E&quot;</span>]= [<span class="string">&quot;one&quot;</span>,<span class="string">&quot;one&quot;</span>,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;three&quot;</span>,<span class="string">&quot;four&quot;</span>,<span class="string">&quot;three&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(df2[df2[<span class="string">&quot;E&quot;</span>].isin([<span class="string">&quot;two&quot;</span>,<span class="string">&quot;four&quot;</span>])])  </span><br><span class="line"><span class="comment"># E라는 열에 &quot;two&quot;와 &quot;four&quot;가 포함된 행을 추출</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C         D     E
+2013-01-03  0.075965  1.552591  1.350081 -1.812949   two
+2013-01-05 -0.405688  0.656769  2.117183 -0.219086  four
+</code></pre>
+<h3 id="설정"><a href="#설정" class="headerlink" title="설정"></a>설정</h3><ul>
+<li>새 열을 설정 하면 해당 인덱스별로 데이터가 자동으로 정렬</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">s1 = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], index=pd.date_range(<span class="string">&quot;20130102&quot;</span>, periods=<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(s1)</span><br><span class="line">df[<span class="string">&quot;F&quot;</span>]=s1</span><br></pre></td></tr></table></figure>
+
+<pre><code>2013-01-02    1
+2013-01-03    2
+2013-01-04    3
+2013-01-05    4
+2013-01-06    5
+2013-01-07    6
+Freq: D, dtype: int64
+</code></pre>
+<ul>
+<li>인덱스 지정 값 설정</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.at[dates[<span class="number">0</span>],<span class="string">&quot;A&quot;</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>위치 지정 값 설정</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iat[<span class="number">0</span>,<span class="number">1</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Numpy 배열로 할당하여 설정</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[:,<span class="string">&quot;D&quot;</span>] = np.array([<span class="number">5</span>] * <span class="built_in">len</span>(df))</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C  D    F
+2013-01-01  0.000000  0.000000  1.067028  5  NaN
+2013-01-02 -1.909402  1.527000 -0.386110  5  1.0
+2013-01-03  0.075965  1.552591  1.350081  5  2.0
+2013-01-04 -0.887034 -0.790107 -1.427116  5  3.0
+2013-01-05 -0.405688  0.656769  2.117183  5  4.0
+2013-01-06 -0.425787  1.433215  0.707955  5  5.0
+</code></pre>
+<ul>
+<li>설정이 있는 작업</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df2 = df.copy()</span><br><span class="line">df2[df2 &gt; <span class="number">0</span>] = -df2</span><br><span class="line"><span class="built_in">print</span>(df2)</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C  D    F
+2013-01-01  0.000000  0.000000 -1.067028 -5  NaN
+2013-01-02 -1.909402 -1.527000 -0.386110 -5 -1.0
+2013-01-03 -0.075965 -1.552591 -1.350081 -5 -2.0
+2013-01-04 -0.887034 -0.790107 -1.427116 -5 -3.0
+2013-01-05 -0.405688 -0.656769 -2.117183 -5 -4.0
+2013-01-06 -0.425787 -1.433215 -0.707955 -5 -5.0
+</code></pre>
+<h2 id="누락된-데이터"><a href="#누락된-데이터" class="headerlink" title="누락된 데이터"></a>누락된 데이터</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df1 = df.reindex(index=dates[<span class="number">0</span>:<span class="number">4</span>], columns=<span class="built_in">list</span>(df.columns)+[<span class="string">&quot;E&quot;</span>])</span><br><span class="line">df1.loc[dates[<span class="number">0</span>] : dates[<span class="number">1</span>],<span class="string">&quot;E&quot;</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(df1)</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C  D    F    E
+2013-01-01  0.000000  0.000000  1.067028  5  NaN  1.0
+2013-01-02 -1.909402  1.527000 -0.386110  5  1.0  1.0
+2013-01-03  0.075965  1.552591  1.350081  5  2.0  NaN
+2013-01-04 -0.887034 -0.790107 -1.427116  5  3.0  NaN
+</code></pre>
+<h3 id="누락된-데이터가-있는-행-삭제"><a href="#누락된-데이터가-있는-행-삭제" class="headerlink" title="누락된 데이터가 있는 행 삭제"></a>누락된 데이터가 있는 행 삭제</h3><ul>
+<li>dropna()<ul>
+<li>default &#x3D; dropna(axis &#x3D; ‘index’, how &#x3D; ‘any’)</li>
+<li>인덱스 방향으로 훑으면서 nan값이 하나라도 있으면 해당 행 삭제</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df1.dropna(how=<span class="string">&quot;any&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A      B        C  D    F    E
+2013-01-02 -1.909402  1.527 -0.38611  5  1.0  1.0
+</code></pre>
+<h3 id="누락된-데이터-채우기"><a href="#누락된-데이터-채우기" class="headerlink" title="누락된 데이터 채우기"></a>누락된 데이터 채우기</h3><ul>
+<li>fillna()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df1.fillna(value=<span class="number">5</span>)) </span><br><span class="line"><span class="comment"># nan값을 value값으로 채운다</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C  D    F    E
+2013-01-01  0.000000  0.000000  1.067028  5  5.0  1.0
+2013-01-02 -1.909402  1.527000 -0.386110  5  1.0  1.0
+2013-01-03  0.075965  1.552591  1.350081  5  2.0  5.0
+2013-01-04 -0.887034 -0.790107 -1.427116  5  3.0  5.0
+</code></pre>
+<h3 id="nan값이-존재하는지-확인"><a href="#nan값이-존재하는지-확인" class="headerlink" title="nan값이 존재하는지 확인"></a>nan값이 존재하는지 확인</h3><ul>
+<li>pd.isna()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(pd.isna(df1))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                A      B      C      D      F      E
+2013-01-01  False  False  False  False   True  False
+2013-01-02  False  False  False  False  False  False
+2013-01-03  False  False  False  False  False   True
+2013-01-04  False  False  False  False  False   True
+</code></pre>
+<h2 id="Operations-작업"><a href="#Operations-작업" class="headerlink" title="Operations(작업)"></a>Operations(작업)</h2><h3 id="통계"><a href="#통계" class="headerlink" title="통계"></a>통계</h3><ul>
+<li>일반적으로 누락된 데이터는 제외</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.mean()</span><br><span class="line"><span class="comment"># 기술통계</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>A   -0.591991
+B    0.729911
+C    0.571503
+D    5.000000
+F    3.000000
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.mean(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2013-01-01    1.516757
+2013-01-02    1.046298
+2013-01-03    1.995727
+2013-01-04    0.979149
+2013-01-05    2.273653
+2013-01-06    2.343077
+Freq: D, dtype: float64
+</code></pre>
+<ul>
+<li>차원이 다르고 정렬이 필요한 개체로 작업</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s=pd.Series([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,np.nan,<span class="number">6</span>,<span class="number">8</span>], index=dates).shift(<span class="number">2</span>)</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2013-01-01    NaN
+2013-01-02    NaN
+2013-01-03    1.0
+2013-01-04    3.0
+2013-01-05    5.0
+2013-01-06    NaN
+Freq: D, dtype: float64
+</code></pre>
+<ul>
+<li>판다스는 지정된 차원을 자동으로 브로드캐스트한다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.sub(s,axis=<span class="string">&quot;index&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C    D    F
+2013-01-01       NaN       NaN       NaN  NaN  NaN
+2013-01-02       NaN       NaN       NaN  NaN  NaN
+2013-01-03 -0.924035  0.552591  0.350081  4.0  1.0
+2013-01-04 -3.887034 -3.790107 -4.427116  2.0  0.0
+2013-01-05 -5.405688 -4.343231 -2.882817  0.0 -1.0
+2013-01-06       NaN       NaN       NaN  NaN  NaN
+</code></pre>
+<h3 id="데이터에-함수-입력"><a href="#데이터에-함수-입력" class="headerlink" title="데이터에 함수 입력"></a>데이터에 함수 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.apply(np.cumsum))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                   A         B         C   D     F
+2013-01-01  0.000000  0.000000  1.067028   5   NaN
+2013-01-02 -1.909402  1.527000  0.680918  10   1.0
+2013-01-03 -1.833436  3.079591  2.030999  15   3.0
+2013-01-04 -2.720470  2.289485  0.603883  20   6.0
+2013-01-05 -3.126157  2.946253  2.721065  25  10.0
+2013-01-06 -3.551944  4.379468  3.429020  30  15.0
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.apply(<span class="keyword">lambda</span> x :x.<span class="built_in">max</span>()-x.<span class="built_in">min</span>())</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>A    1.985367
+B    2.342697
+C    3.544299
+D    0.000000
+F    4.000000
+dtype: float64
+</code></pre>
+<h3 id="히스토그램"><a href="#히스토그램" class="headerlink" title="히스토그램"></a>히스토그램</h3><ul>
+<li>분포정도</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series(np.random.randint(<span class="number">0</span>,<span class="number">7</span>,size=<span class="number">10</span>))</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0    4
+1    0
+2    2
+3    2
+4    2
+5    5
+6    6
+7    3
+8    6
+9    0
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.value_counts()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2    3
+0    2
+6    2
+4    1
+5    1
+3    1
+dtype: int64
+</code></pre>
+<h3 id="문자열"><a href="#문자열" class="headerlink" title="문자열"></a>문자열</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="string">&quot;A&quot;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;Aaba&#x27;</span>, <span class="string">&#x27;Baca&#x27;</span>, np.nan, <span class="string">&quot;CABA&quot;</span>, <span class="string">&quot;dog&quot;</span>,<span class="string">&quot;cat&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(s.<span class="built_in">str</span>.lower())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-----upper-----&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(s.<span class="built_in">str</span>.upper())</span><br></pre></td></tr></table></figure>
+
+<pre><code>0       a
+1       b
+2       c
+3    aaba
+4    baca
+5     NaN
+6    caba
+7     dog
+8     cat
+dtype: object
+-----upper-----
+0       A
+1       B
+2       C
+3    AABA
+4    BACA
+5     NaN
+6    CABA
+7     DOG
+8     CAT
+dtype: object
+</code></pre>
+<h2 id="병합"><a href="#병합" class="headerlink" title="병합"></a>병합</h2><ul>
+<li>Series 및 DataFrame을 쉽게 결합</li>
+<li>concat</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">10</span>,<span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+
+<pre><code>          0         1         2         3
+0  0.449724  0.286135  0.502216  0.573424
+1  0.777551 -0.485242  1.342152 -0.293918
+2 -1.760999  1.052294  0.699095  1.558663
+3  1.535162  1.099069  0.609733 -0.577464
+4  0.987425  0.175097 -0.239427  0.011823
+5 -0.804263  0.216801  0.135882 -0.252641
+6 -0.953844  0.527005 -0.209263 -1.696837
+7 -0.726548  0.974055 -0.660680 -0.950009
+8 -0.889739 -0.793810  0.403333 -0.295826
+9  0.001348 -2.033730 -0.657308 -0.347856
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pieces = [df[:<span class="number">3</span>], df[<span class="number">3</span>:<span class="number">7</span>],df[<span class="number">7</span>:]] <span class="comment"># 리스트형식</span></span><br><span class="line">pieces</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[          0         1         2         3
+ 0  0.449724  0.286135  0.502216  0.573424
+ 1  0.777551 -0.485242  1.342152 -0.293918
+ 2 -1.760999  1.052294  0.699095  1.558663,
+           0         1         2         3
+ 3  1.535162  1.099069  0.609733 -0.577464
+ 4  0.987425  0.175097 -0.239427  0.011823
+ 5 -0.804263  0.216801  0.135882 -0.252641
+ 6 -0.953844  0.527005 -0.209263 -1.696837,
+           0         1         2         3
+ 7 -0.726548  0.974055 -0.660680 -0.950009
+ 8 -0.889739 -0.793810  0.403333 -0.295826
+ 9  0.001348 -2.033730 -0.657308 -0.347856]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(pd.concat(pieces))</span><br></pre></td></tr></table></figure>
+
+<pre><code>          0         1         2         3
+0  0.449724  0.286135  0.502216  0.573424
+1  0.777551 -0.485242  1.342152 -0.293918
+2 -1.760999  1.052294  0.699095  1.558663
+3  1.535162  1.099069  0.609733 -0.577464
+4  0.987425  0.175097 -0.239427  0.011823
+5 -0.804263  0.216801  0.135882 -0.252641
+6 -0.953844  0.527005 -0.209263 -1.696837
+7 -0.726548  0.974055 -0.660680 -0.950009
+8 -0.889739 -0.793810  0.403333 -0.295826
+9  0.001348 -2.033730 -0.657308 -0.347856
+</code></pre>
+<h2 id="Join"><a href="#Join" class="headerlink" title="Join"></a>Join</h2><ul>
+<li>db스타일이 병합</li>
+<li>merge</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">left = pd.DataFrame(&#123;<span class="string">&quot;Key&quot;</span>:[<span class="string">&quot;foo&quot;</span>,<span class="string">&quot;foo&quot;</span>], <span class="string">&quot;lval&quot;</span>:[<span class="number">1</span>,<span class="number">2</span>]&#125;)</span><br><span class="line">right = pd.DataFrame(&#123;<span class="string">&quot;Key&quot;</span>:[<span class="string">&quot;foo&quot;</span>,<span class="string">&quot;foo&quot;</span>], <span class="string">&quot;rval&quot;</span>:[<span class="number">4</span>,<span class="number">5</span>]&#125;)</span><br><span class="line"><span class="built_in">print</span>(left)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;----right----&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(right)</span><br></pre></td></tr></table></figure>
+
+<pre><code>   Key  lval
+0  foo     1
+1  foo     2
+----right----
+   Key  rval
+0  foo     4
+1  foo     5
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(pd.merge(left,right,on=<span class="string">&quot;Key&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>   Key  lval  rval
+0  foo     1     4
+1  foo     1     5
+2  foo     2     4
+3  foo     2     5
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">left = pd.DataFrame(&#123;<span class="string">&quot;Key&quot;</span>:[<span class="string">&quot;foo&quot;</span>,<span class="string">&quot;bar&quot;</span>], <span class="string">&quot;lval&quot;</span>:[<span class="number">1</span>,<span class="number">2</span>]&#125;)</span><br><span class="line">right = pd.DataFrame(&#123;<span class="string">&quot;Key&quot;</span>:[<span class="string">&quot;foo&quot;</span>,<span class="string">&quot;bar&quot;</span>], <span class="string">&quot;rval&quot;</span>:[<span class="number">4</span>,<span class="number">5</span>]&#125;)</span><br><span class="line"><span class="built_in">print</span>(left)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;----right----&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(right)</span><br></pre></td></tr></table></figure>
+
+<pre><code>   Key  lval
+0  foo     1
+1  bar     2
+----right----
+   Key  rval
+0  foo     4
+1  bar     5
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(pd.merge(left,right,on=<span class="string">&quot;Key&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>   Key  lval  rval
+0  foo     1     4
+1  bar     2     5
+</code></pre>
+<h2 id="Grouping"><a href="#Grouping" class="headerlink" title="Grouping"></a>Grouping</h2><ul>
+<li>하나 이상을 포함하는 프로세스를 의미<ul>
+<li>기준에 따라 데이터를 구룹으로 분할</li>
+<li>각 그룹에 독립적으로 기능 적용</li>
+<li>결과를 데이터 구조로 결합</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;A&quot;</span>: [<span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;foo&quot;</span>],</span><br><span class="line">        <span class="string">&quot;B&quot;</span>: [<span class="string">&quot;one&quot;</span>, <span class="string">&quot;one&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;three&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;one&quot;</span>, <span class="string">&quot;three&quot;</span>],</span><br><span class="line">        <span class="string">&quot;C&quot;</span>: np.random.randn(<span class="number">8</span>),</span><br><span class="line">        <span class="string">&quot;D&quot;</span>: np.random.randn(<span class="number">8</span>),</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+
+<pre><code>     A      B         C         D
+0  foo    one  0.844088 -0.974067
+1  bar    one -2.392914  0.557553
+2  foo    two  0.667617  0.410376
+3  bar  three  0.271053  1.160380
+4  foo    two  0.844380 -0.665977
+5  bar    two  0.366607  1.947910
+6  foo    one -0.480591  0.607410
+7  foo  three -1.137906 -0.628921
+</code></pre>
+<h3 id="A를-기준으로-그룹화-후-더하기"><a href="#A를-기준으로-그룹화-후-더하기" class="headerlink" title="A를 기준으로 그룹화 후 더하기"></a>A를 기준으로 그룹화 후 더하기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.groupby(<span class="string">&quot;A&quot;</span>).<span class="built_in">sum</span>())</span><br></pre></td></tr></table></figure>
+
+<pre><code>            C         D
+A                      
+bar -1.755254  3.665843
+foo  0.737587 -1.251179
+</code></pre>
+<h3 id="A와-B를-그룹화-후-더하기"><a href="#A와-B를-그룹화-후-더하기" class="headerlink" title="A와 B를 그룹화 후 더하기"></a>A와 B를 그룹화 후 더하기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.groupby([<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>]).<span class="built_in">sum</span>())</span><br></pre></td></tr></table></figure>
+
+<pre><code>                  C         D
+A   B                        
+bar one   -2.392914  0.557553
+    three  0.271053  1.160380
+    two    0.366607  1.947910
+foo one    0.363496 -0.366657
+    three -1.137906 -0.628921
+    two    1.511997 -0.255601
+</code></pre>
+<h2 id="Reshaping"><a href="#Reshaping" class="headerlink" title="Reshaping"></a>Reshaping</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tuples = <span class="built_in">list</span>(</span><br><span class="line">    <span class="built_in">zip</span>(</span><br><span class="line">        *[</span><br><span class="line">            [<span class="string">&quot;bar&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="string">&quot;baz&quot;</span>, <span class="string">&quot;baz&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;qux&quot;</span>, <span class="string">&quot;qux&quot;</span>],</span><br><span class="line">            [<span class="string">&quot;one&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;one&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;one&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;one&quot;</span>, <span class="string">&quot;two&quot;</span>],</span><br><span class="line">        ]</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">index = pd.MultiIndex.from_tuples(tuples, names=[<span class="string">&quot;first&quot;</span>,<span class="string">&quot;second&quot;</span>])</span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">8</span>,<span class="number">2</span>), index=index, columns=[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>])</span><br><span class="line">df2 = df[:<span class="number">4</span>]</span><br><span class="line"><span class="built_in">print</span>(df2)</span><br></pre></td></tr></table></figure>
+
+<pre><code>                     A         B
+first second                    
+bar   one     2.536753 -0.409669
+      two     0.248299  0.410299
+baz   one    -0.791332 -1.745028
+      two    -1.678724 -0.540814
+</code></pre>
+<h3 id="압축"><a href="#압축" class="headerlink" title="압축"></a>압축</h3><ul>
+<li>stacked()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stacked = df2.stack()</span><br><span class="line">stacked</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>first  second   
+bar    one     A    2.536753
+               B   -0.409669
+       two     A    0.248299
+               B    0.410299
+baz    one     A   -0.791332
+               B   -1.745028
+       two     A   -1.678724
+               B   -0.540814
+dtype: float64
+</code></pre>
+<h4 id="역연산"><a href="#역연산" class="headerlink" title="역연산"></a>역연산</h4><ul>
+<li>기본적으로 마지막 레벨의 스택을 해제한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stacked.unstack()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-7e782d4e-2c2e-4d9f-84d9-fff75c75b680">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+    <tr>
+      <th>first</th>
+      <th>second</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bar</th>
+      <th>one</th>
+      <td>2.536753</td>
+      <td>-0.409669</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.248299</td>
+      <td>0.410299</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">baz</th>
+      <th>one</th>
+      <td>-0.791332</td>
+      <td>-1.745028</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>-1.678724</td>
+      <td>-0.540814</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7e782d4e-2c2e-4d9f-84d9-fff75c75b680')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-7e782d4e-2c2e-4d9f-84d9-fff75c75b680 button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-7e782d4e-2c2e-4d9f-84d9-fff75c75b680&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stacked.unstack(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-7102b4b7-9e7c-481f-ba6b-47189da0300a">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>second</th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+    <tr>
+      <th>first</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bar</th>
+      <th>A</th>
+      <td>2.536753</td>
+      <td>0.248299</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-0.409669</td>
+      <td>0.410299</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">baz</th>
+      <th>A</th>
+      <td>-0.791332</td>
+      <td>-1.678724</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-1.745028</td>
+      <td>-0.540814</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7102b4b7-9e7c-481f-ba6b-47189da0300a')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-7102b4b7-9e7c-481f-ba6b-47189da0300a button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-7102b4b7-9e7c-481f-ba6b-47189da0300a&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stacked.unstack(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-9ded9c36-310c-40d0-b603-267ce2d5171d">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>bar</th>
+      <th>baz</th>
+    </tr>
+    <tr>
+      <th>second</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">one</th>
+      <th>A</th>
+      <td>2.536753</td>
+      <td>-0.791332</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-0.409669</td>
+      <td>-1.745028</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">two</th>
+      <th>A</th>
+      <td>0.248299</td>
+      <td>-1.678724</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>0.410299</td>
+      <td>-0.540814</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9ded9c36-310c-40d0-b603-267ce2d5171d')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-9ded9c36-310c-40d0-b603-267ce2d5171d button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-9ded9c36-310c-40d0-b603-267ce2d5171d&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+<h3 id="Pivot-table"><a href="#Pivot-table" class="headerlink" title="Pivot table"></a>Pivot table</h3><ul>
+<li><p>데이터프레임의 액셀화 </p>
+</li>
+<li><p>데이터 불러오기</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;A&quot;</span>:[<span class="string">&quot;one&quot;</span>, <span class="string">&quot;one&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;three&quot;</span>] * <span class="number">3</span>,</span><br><span class="line">        <span class="string">&quot;B&quot;</span>:[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>] * <span class="number">4</span>,</span><br><span class="line">        <span class="string">&quot;C&quot;</span>:[<span class="string">&quot;foo&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="string">&quot;bar&quot;</span>, <span class="string">&quot;bar&quot;</span>]*<span class="number">2</span>,</span><br><span class="line">        <span class="string">&quot;D&quot;</span>:np.random.randn(<span class="number">12</span>),</span><br><span class="line">        <span class="string">&quot;E&quot;</span>:np.random.randn(<span class="number">12</span>),</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-fa05ce2d-067b-468a-ba23-e4cfdde96e51">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>one</td>
+      <td>A</td>
+      <td>foo</td>
+      <td>0.472353</td>
+      <td>1.319584</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>one</td>
+      <td>B</td>
+      <td>foo</td>
+      <td>0.814895</td>
+      <td>0.186319</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>two</td>
+      <td>C</td>
+      <td>foo</td>
+      <td>-1.231097</td>
+      <td>0.146430</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>three</td>
+      <td>A</td>
+      <td>bar</td>
+      <td>-0.048371</td>
+      <td>0.301440</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>one</td>
+      <td>B</td>
+      <td>bar</td>
+      <td>0.118259</td>
+      <td>-0.269829</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>one</td>
+      <td>C</td>
+      <td>bar</td>
+      <td>1.188139</td>
+      <td>-1.339077</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>two</td>
+      <td>A</td>
+      <td>foo</td>
+      <td>1.183869</td>
+      <td>-0.878976</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>three</td>
+      <td>B</td>
+      <td>foo</td>
+      <td>-0.419601</td>
+      <td>0.990978</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>one</td>
+      <td>C</td>
+      <td>foo</td>
+      <td>-0.613792</td>
+      <td>-1.098215</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>one</td>
+      <td>A</td>
+      <td>bar</td>
+      <td>-0.002902</td>
+      <td>-0.330832</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>two</td>
+      <td>B</td>
+      <td>bar</td>
+      <td>-0.253640</td>
+      <td>0.929601</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>three</td>
+      <td>C</td>
+      <td>bar</td>
+      <td>-0.666981</td>
+      <td>-0.285138</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-fa05ce2d-067b-468a-ba23-e4cfdde96e51')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-fa05ce2d-067b-468a-ba23-e4cfdde96e51 button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-fa05ce2d-067b-468a-ba23-e4cfdde96e51&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+<ul>
+<li>피벗테이블 만들기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A와 B의 컬럼으로 그룹바이를 하는데 컬럼명은 C, values값은 D로한다.</span></span><br><span class="line">pd.pivot_table(df, values=<span class="string">&quot;D&quot;</span>, index=[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>], columns=[<span class="string">&quot;C&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-a59c0ebb-b0bf-477a-90e0-523290a3d371">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>C</th>
+      <th>bar</th>
+      <th>foo</th>
+    </tr>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">one</th>
+      <th>A</th>
+      <td>-0.002902</td>
+      <td>0.472353</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>0.118259</td>
+      <td>0.814895</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>1.188139</td>
+      <td>-0.613792</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">three</th>
+      <th>A</th>
+      <td>-0.048371</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>NaN</td>
+      <td>-0.419601</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>-0.666981</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">two</th>
+      <th>A</th>
+      <td>NaN</td>
+      <td>1.183869</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-0.253640</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>NaN</td>
+      <td>-1.231097</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a59c0ebb-b0bf-477a-90e0-523290a3d371')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-a59c0ebb-b0bf-477a-90e0-523290a3d371 button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-a59c0ebb-b0bf-477a-90e0-523290a3d371&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+<h2 id="Time-series"><a href="#Time-series" class="headerlink" title="Time series"></a>Time series</h2><ul>
+<li>pandas는 시간변환에 엄청 강하고 효율적이다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rng = pd.date_range(<span class="string">&quot;1/1/2012&quot;</span>, periods=<span class="number">100</span>, freq=<span class="string">&quot;S&quot;</span>) <span class="comment"># Second단위</span></span><br><span class="line">ts = pd.Series(np.random.randint(<span class="number">0</span>,<span class="number">500</span>,<span class="built_in">len</span>(rng)), index=rng)</span><br><span class="line">ts.resample(<span class="string">&quot;5Min&quot;</span>).<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2012-01-01    25887
+Freq: 5T, dtype: int64
+</code></pre>
+<h3 id="시간-표현"><a href="#시간-표현" class="headerlink" title="시간 표현"></a>시간 표현</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rng = pd.date_range(<span class="string">&quot;3/6/2012 00:00&quot;</span>, periods=<span class="number">5</span>, freq=<span class="string">&quot;D&quot;</span>) <span class="comment"># Day단위</span></span><br><span class="line">ts = pd.Series(np.random.randn(<span class="built_in">len</span>(rng)), rng)</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2012-03-06   -1.056279
+2012-03-07    1.689753
+2012-03-08    0.581104
+2012-03-09    0.274412
+2012-03-10   -0.611934
+Freq: D, dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 협정시계시</span></span><br><span class="line">ts_utc = ts.tz_localize(<span class="string">&quot;UTC&quot;</span>)</span><br><span class="line">ts_utc</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2012-03-06 00:00:00+00:00   -1.056279
+2012-03-07 00:00:00+00:00    1.689753
+2012-03-08 00:00:00+00:00    0.581104
+2012-03-09 00:00:00+00:00    0.274412
+2012-03-10 00:00:00+00:00   -0.611934
+Freq: D, dtype: float64
+</code></pre>
+<h3 id="다른-시간대로-변환"><a href="#다른-시간대로-변환" class="headerlink" title="다른 시간대로 변환"></a>다른 시간대로 변환</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 미국 동부로 시간변환</span></span><br><span class="line">ts_utc.tz_convert(<span class="string">&quot;US/Eastern&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2012-03-05 19:00:00-05:00   -1.056279
+2012-03-06 19:00:00-05:00    1.689753
+2012-03-07 19:00:00-05:00    0.581104
+2012-03-08 19:00:00-05:00    0.274412
+2012-03-09 19:00:00-05:00   -0.611934
+Freq: D, dtype: float64
+</code></pre>
+<h3 id="시간범위-표현-간-변환"><a href="#시간범위-표현-간-변환" class="headerlink" title="시간범위 표현 간 변환"></a>시간범위 표현 간 변환</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rng = pd.date_range(<span class="string">&quot;1/1/2012&quot;</span>, periods=<span class="number">5</span>,freq=<span class="string">&quot;M&quot;</span>) <span class="comment"># Month 단위</span></span><br><span class="line">ts = pd.Series(np.random.randn(<span class="built_in">len</span>(rng)),index=rng)</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2012-01-31    1.219098
+2012-02-29   -0.532026
+2012-03-31    0.642991
+2012-04-30    0.993084
+2012-05-31   -0.744262
+Freq: M, dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps = ts.to_period() <span class="comment"># 달까지 표시하겠다</span></span><br><span class="line">ps</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2012-01    1.219098
+2012-02   -0.532026
+2012-03    0.642991
+2012-04    0.993084
+2012-05   -0.744262
+Freq: M, dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps.to_timestamp()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2012-01-01    1.219098
+2012-02-01   -0.532026
+2012-03-01    0.642991
+2012-04-01    0.993084
+2012-05-01   -0.744262
+Freq: MS, dtype: float64
+</code></pre>
+<h3 id="마침표와-타임스탬프-사이-변환"><a href="#마침표와-타임스탬프-사이-변환" class="headerlink" title="마침표와 타임스탬프 사이 변환"></a>마침표와 타임스탬프 사이 변환</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">prng = pd.period_range(<span class="string">&quot;1990Q1&quot;</span>,<span class="string">&quot;2000Q4&quot;</span>, freq=<span class="string">&quot;Q-NOV&quot;</span>)</span><br><span class="line">ts = pd.Series(np.random.randn(<span class="built_in">len</span>(prng)),prng)</span><br><span class="line">ts.index = (prng.asfreq(<span class="string">&quot;M&quot;</span>,<span class="string">&quot;e&quot;</span>)+<span class="number">1</span>).asfreq(<span class="string">&quot;H&quot;</span>,<span class="string">&quot;s&quot;</span>)+<span class="number">9</span></span><br><span class="line">ts.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>1990-03-01 09:00    1.084262
+1990-06-01 09:00   -0.958435
+1990-09-01 09:00    1.222262
+1990-12-01 09:00   -0.644455
+1991-03-01 09:00   -0.278623
+Freq: H, dtype: float64
+</code></pre>
+<h2 id="범주-Categoricals"><a href="#범주-Categoricals" class="headerlink" title="범주(Categoricals)"></a>범주(Categoricals)</h2><ul>
+<li>범주형 데이터를 DataFrame으로 부른다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">     &#123;<span class="string">&quot;id&quot;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="string">&quot;raw_grade&quot;</span>: [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;e&quot;</span>]&#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&quot;grade&quot;</span>]=df[<span class="string">&quot;raw_grade&quot;</span>].astype(<span class="string">&quot;category&quot;</span>) <span class="comment"># grade라는 Series에 카테고리 생성해주기</span></span><br><span class="line">df[<span class="string">&quot;grade&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0    a
+1    b
+2    b
+3    a
+4    a
+5    e
+Name: grade, dtype: category
+Categories (3, object): [&#39;a&#39;, &#39;b&#39;, &#39;e&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&quot;grade&quot;</span>].cat.categories=[<span class="string">&quot;very good&quot;</span>, <span class="string">&quot;good&quot;</span>, <span class="string">&quot;very bad&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>범주를 재정렬 후 누락된 범주 추가</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&quot;grade&quot;</span>] = df[<span class="string">&quot;grade&quot;</span>].cat.set_categories(</span><br><span class="line">    [<span class="string">&quot;very bad&quot;</span>, <span class="string">&quot;bad&quot;</span>, <span class="string">&quot;medium&quot;</span>, <span class="string">&quot;good&quot;</span>, <span class="string">&quot;very good&quot;</span>]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">df[<span class="string">&quot;grade&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0    very good
+1         good
+2         good
+3    very good
+4    very good
+5     very bad
+Name: grade, dtype: category
+Categories (5, object): [&#39;very bad&#39;, &#39;bad&#39;, &#39;medium&#39;, &#39;good&#39;, &#39;very good&#39;]
+</code></pre>
+<ul>
+<li>정렬은 범주의 순서에 따라 이루어진다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_values(by=<span class="string">&quot;grade&quot;</span>) <span class="comment"># grade 범주 순으로 정렬</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-7950f959-d73a-49fb-b9f3-31dcceafff7d">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>raw_grade</th>
+      <th>grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>e</td>
+      <td>very bad</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>b</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>b</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>a</td>
+      <td>very good</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>a</td>
+      <td>very good</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>a</td>
+      <td>very good</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7950f959-d73a-49fb-b9f3-31dcceafff7d')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-7950f959-d73a-49fb-b9f3-31dcceafff7d button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-7950f959-d73a-49fb-b9f3-31dcceafff7d&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+<ul>
+<li>범주형 열을 기준으로 그룹화하면 빈 범주도 표시</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.groupby(<span class="string">&quot;grade&quot;</span>).size() <span class="comment"># bad, medium도 표시된다</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>grade
+very bad     1
+bad          0
+medium       0
+good         2
+very good    3
+dtype: int64
+</code></pre>
+<h2 id="시각화"><a href="#시각화" class="headerlink" title="시각화"></a>시각화</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.close(<span class="string">&quot;all&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ts = pd.Series(np.random.randn(<span class="number">1000</span>), index=pd.date_range(<span class="string">&quot;1/1/2000&quot;</span>,periods=<span class="number">1000</span>))</span><br><span class="line">ts = ts.cumsum() <span class="comment"># 누적합 구하기</span></span><br><span class="line">ts.plot()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f49f08c3910&gt;
+</code></pre>
+<p><img src="/images/assignment/Pandas/output_142_1.png" alt="png"></p>
+<ul>
+<li>plot()메서드는 레이블이 있는 모든열을 그리는데 편리</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">    np.random.randn(<span class="number">1000</span>,<span class="number">4</span>), index=ts.index, columns=[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>,<span class="string">&quot;D&quot;</span>]</span><br><span class="line">)</span><br><span class="line">df = df.cumsum()</span><br><span class="line">df.plot()</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;best&#x27;</span>); <span class="comment"># 범례 추가</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/assignment/Pandas/output_144_0.png" alt="png"></p>
+<h2 id="데이터-입출력"><a href="#데이터-입출력" class="headerlink" title="데이터 입출력"></a>데이터 입출력</h2><h3 id="csv-파일-쓰기"><a href="#csv-파일-쓰기" class="headerlink" title="csv 파일 쓰기"></a>csv 파일 쓰기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_csv(<span class="string">&quot;foo.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="csv-파일에서-읽기"><a href="#csv-파일에서-읽기" class="headerlink" title="csv 파일에서 읽기"></a>csv 파일에서 읽기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&quot;foo.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-68336ae4-99f1-418e-b521-f47bcd21d551">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000-01-01</td>
+      <td>0.060692</td>
+      <td>0.105831</td>
+      <td>1.634998</td>
+      <td>0.772662</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000-01-02</td>
+      <td>0.504047</td>
+      <td>0.861909</td>
+      <td>0.919295</td>
+      <td>1.285729</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000-01-03</td>
+      <td>0.147256</td>
+      <td>2.801748</td>
+      <td>1.466028</td>
+      <td>0.051882</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000-01-04</td>
+      <td>-0.188261</td>
+      <td>1.605617</td>
+      <td>3.807387</td>
+      <td>0.548725</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000-01-05</td>
+      <td>-1.284756</td>
+      <td>1.304981</td>
+      <td>4.781101</td>
+      <td>0.764170</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>2002-09-22</td>
+      <td>67.967114</td>
+      <td>16.397385</td>
+      <td>0.346370</td>
+      <td>-42.046715</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>2002-09-23</td>
+      <td>68.446463</td>
+      <td>17.084053</td>
+      <td>1.419101</td>
+      <td>-41.482823</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>2002-09-24</td>
+      <td>67.728754</td>
+      <td>16.569164</td>
+      <td>2.337529</td>
+      <td>-41.447092</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>2002-09-25</td>
+      <td>66.412904</td>
+      <td>16.833811</td>
+      <td>3.513496</td>
+      <td>-41.535883</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>2002-09-26</td>
+      <td>69.982266</td>
+      <td>15.368470</td>
+      <td>2.753197</td>
+      <td>-42.219712</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 5 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-68336ae4-99f1-418e-b521-f47bcd21d551')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-68336ae4-99f1-418e-b521-f47bcd21d551 button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-68336ae4-99f1-418e-b521-f47bcd21d551&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+<h3 id="HDF5-파일-쓰기"><a href="#HDF5-파일-쓰기" class="headerlink" title="HDF5 파일 쓰기"></a>HDF5 파일 쓰기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_hdf(<span class="string">&quot;foo.h5&quot;</span>,<span class="string">&quot;df&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="HDF5-파일-읽기"><a href="#HDF5-파일-읽기" class="headerlink" title="HDF5 파일 읽기"></a>HDF5 파일 읽기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_hdf(<span class="string">&quot;foo.h5&quot;</span>,<span class="string">&quot;df&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-251bd0cf-e0ab-472e-8ca9-f2462a84c5b3">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2000-01-01</th>
+      <td>0.060692</td>
+      <td>0.105831</td>
+      <td>1.634998</td>
+      <td>0.772662</td>
+    </tr>
+    <tr>
+      <th>2000-01-02</th>
+      <td>0.504047</td>
+      <td>0.861909</td>
+      <td>0.919295</td>
+      <td>1.285729</td>
+    </tr>
+    <tr>
+      <th>2000-01-03</th>
+      <td>0.147256</td>
+      <td>2.801748</td>
+      <td>1.466028</td>
+      <td>0.051882</td>
+    </tr>
+    <tr>
+      <th>2000-01-04</th>
+      <td>-0.188261</td>
+      <td>1.605617</td>
+      <td>3.807387</td>
+      <td>0.548725</td>
+    </tr>
+    <tr>
+      <th>2000-01-05</th>
+      <td>-1.284756</td>
+      <td>1.304981</td>
+      <td>4.781101</td>
+      <td>0.764170</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2002-09-22</th>
+      <td>67.967114</td>
+      <td>16.397385</td>
+      <td>0.346370</td>
+      <td>-42.046715</td>
+    </tr>
+    <tr>
+      <th>2002-09-23</th>
+      <td>68.446463</td>
+      <td>17.084053</td>
+      <td>1.419101</td>
+      <td>-41.482823</td>
+    </tr>
+    <tr>
+      <th>2002-09-24</th>
+      <td>67.728754</td>
+      <td>16.569164</td>
+      <td>2.337529</td>
+      <td>-41.447092</td>
+    </tr>
+    <tr>
+      <th>2002-09-25</th>
+      <td>66.412904</td>
+      <td>16.833811</td>
+      <td>3.513496</td>
+      <td>-41.535883</td>
+    </tr>
+    <tr>
+      <th>2002-09-26</th>
+      <td>69.982266</td>
+      <td>15.368470</td>
+      <td>2.753197</td>
+      <td>-42.219712</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 4 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-251bd0cf-e0ab-472e-8ca9-f2462a84c5b3')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-251bd0cf-e0ab-472e-8ca9-f2462a84c5b3 button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-251bd0cf-e0ab-472e-8ca9-f2462a84c5b3&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+<h3 id="엑셀-파일-쓰기"><a href="#엑셀-파일-쓰기" class="headerlink" title="엑셀 파일 쓰기"></a>엑셀 파일 쓰기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_excel(<span class="string">&quot;foo.xlsx&quot;</span>,sheet_name=<span class="string">&quot;sheet1&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="엑셀-파일-읽기"><a href="#엑셀-파일-읽기" class="headerlink" title="엑셀 파일 읽기"></a>엑셀 파일 읽기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_excel(<span class="string">&quot;foo.xlsx&quot;</span>, <span class="string">&quot;sheet1&quot;</span>, index_col=<span class="literal">None</span>, na_values=[<span class="string">&quot;NA&quot;</span>]) <span class="comment"># 결측치를 NA로 표시</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-935c1612-11ff-4175-b303-402eea5e8869">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000-01-01</td>
+      <td>0.060692</td>
+      <td>0.105831</td>
+      <td>1.634998</td>
+      <td>0.772662</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000-01-02</td>
+      <td>0.504047</td>
+      <td>0.861909</td>
+      <td>0.919295</td>
+      <td>1.285729</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000-01-03</td>
+      <td>0.147256</td>
+      <td>2.801748</td>
+      <td>1.466028</td>
+      <td>0.051882</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000-01-04</td>
+      <td>-0.188261</td>
+      <td>1.605617</td>
+      <td>3.807387</td>
+      <td>0.548725</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000-01-05</td>
+      <td>-1.284756</td>
+      <td>1.304981</td>
+      <td>4.781101</td>
+      <td>0.764170</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>2002-09-22</td>
+      <td>67.967114</td>
+      <td>16.397385</td>
+      <td>0.346370</td>
+      <td>-42.046715</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>2002-09-23</td>
+      <td>68.446463</td>
+      <td>17.084053</td>
+      <td>1.419101</td>
+      <td>-41.482823</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>2002-09-24</td>
+      <td>67.728754</td>
+      <td>16.569164</td>
+      <td>2.337529</td>
+      <td>-41.447092</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>2002-09-25</td>
+      <td>66.412904</td>
+      <td>16.833811</td>
+      <td>3.513496</td>
+      <td>-41.535883</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>2002-09-26</td>
+      <td>69.982266</td>
+      <td>15.368470</td>
+      <td>2.753197</td>
+      <td>-42.219712</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 5 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-935c1612-11ff-4175-b303-402eea5e8869')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-935c1612-11ff-4175-b303-402eea5e8869 button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-935c1612-11ff-4175-b303-402eea5e8869&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-27T00:00:00.000Z" title="2022. 6. 27. 오전 9:00:00">2022-06-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-28T08:16:22.432Z" title="2022. 6. 28. 오후 5:16:22">2022-06-28</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">14 minutes read (About 2087 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/27/day0627/">Day-7 Python And Basic Grammar</a></h1><div class="content"><ul>
 <li>Hello World</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -1678,7 +4039,7 @@ g
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> iris<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> Sepal.Length<span class="punctuation">,</span> </span><br><span class="line">                        y <span class="operator">=</span> Sepal.Width<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_point<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/day0617/unnamed-chunk-1-1.png"><!-- --></p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="JungBear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JungBear</p><p class="is-size-6 is-block">Blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>In Your Heart</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">17</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/JungBear" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/JungBear"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">11</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Assignment/"><span class="level-start"><span class="level-item">Assignment</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/R/"><span class="level-start"><span class="level-item">R</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/R/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T06:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/0705_PyCaret_Sample/">Day-13 PyCaret</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705/">Day-13 Random Forest &amp; Gradient Boosting Regression Tree</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-04T00:00:00.000Z">2022-07-04</time></p><p class="title"><a href="/2022/07/04/day0704/">Day-12 Stochastic Grandient Descent &amp; Decision Tree</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-01T00:00:00.000Z">2022-07-01</time></p><p class="title"><a href="/2022/07/01/day0701/">Day-11 Machine Learning</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-01T00:00:00.000Z">2022-07-01</time></p><p class="title"><a href="/2022/07/01/day0701_2/">Day-11 Machine Learning</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">JungBear&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 JungBear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="JungBear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JungBear</p><p class="is-size-6 is-block">Blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>In Your Heart</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">18</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/JungBear" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/JungBear"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Assignment/"><span class="level-start"><span class="level-item">Assignment</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/R/"><span class="level-start"><span class="level-item">R</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/R/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706/">Day-14 Data Analysis Process &amp; Review</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T06:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/0705_PyCaret_Sample/">Day-13 PyCaret</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705/">Day-13 Random Forest &amp; Gradient Boosting Regression Tree</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-04T00:00:00.000Z">2022-07-04</time></p><p class="title"><a href="/2022/07/04/day0704/">Day-12 Stochastic Grandient Descent &amp; Decision Tree</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-01T00:00:00.000Z">2022-07-01</time></p><p class="title"><a href="/2022/07/01/day0701/">Day-11 Machine Learning</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">JungBear&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 JungBear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
