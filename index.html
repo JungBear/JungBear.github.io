@@ -1,5 +1,678 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>JungBear&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="JungBear&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="JungBear&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="JungBear&#039;s Blog"><meta property="og:url" content="https://jungbear.github.io/"><meta property="og:site_name" content="JungBear&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://jungbear.github.io/img/og_image.png"><meta property="article:author" content="JungBear"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://JungBear.github.io"},"headline":"JungBear's Blog","image":["https://jungbear.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JungBear"},"publisher":{"@type":"Organization","name":"JungBear's Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">JungBear&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-08T00:00:00.000Z" title="2022. 7. 8. 오전 9:00:00">2022-07-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-08T08:17:22.106Z" title="2022. 7. 8. 오후 5:17:22">2022-07-08</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">14 minutes read (About 2129 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/08/day0708/">Day-16 Kaggle Bike Sharing </a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This Python 3 environment comes with many helpful analytics libraries installed</span></span><br><span class="line"><span class="comment"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span></span><br><span class="line"><span class="comment"># For example, here&#x27;s several helpful packages to load</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># linear algebra</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Input data files are available in the read-only &quot;../input/&quot; directory</span></span><br><span class="line"><span class="comment"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">for</span> dirname, _, filenames <span class="keyword">in</span> os.walk(<span class="string">&#x27;/kaggle/input&#x27;</span>):</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">        <span class="built_in">print</span>(os.path.join(dirname, filename))</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &quot;Save &amp; Run All&quot; </span></span><br><span class="line"><span class="comment"># You can also write temporary files to /kaggle/temp/, but they won&#x27;t be saved outside of the current session</span></span><br></pre></td></tr></table></figure>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>JungBear&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="JungBear&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="JungBear&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="JungBear&#039;s Blog"><meta property="og:url" content="https://jungbear.github.io/"><meta property="og:site_name" content="JungBear&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://jungbear.github.io/img/og_image.png"><meta property="article:author" content="JungBear"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://JungBear.github.io"},"headline":"JungBear's Blog","image":["https://jungbear.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JungBear"},"publisher":{"@type":"Organization","name":"JungBear's Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">JungBear&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-11T00:00:00.000Z" title="2022. 7. 11. 오전 9:00:00">2022-07-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-12T10:13:36.147Z" title="2022. 7. 12. 오후 7:13:36">2022-07-12</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Kaggle/">Kaggle</a></span><span class="level-item">24 minutes read (About 3527 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/11/day0711/">Day-17 Kaggle Competion</a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This Python 3 environment comes with many helpful analytics libraries installed</span></span><br><span class="line"><span class="comment"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span></span><br><span class="line"><span class="comment"># For example, here&#x27;s several helpful packages to load</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># linear algebra</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Input data files are available in the read-only &quot;../input/&quot; directory</span></span><br><span class="line"><span class="comment"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">for</span> dirname, _, filenames <span class="keyword">in</span> os.walk(<span class="string">&#x27;/kaggle/input&#x27;</span>):</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">        <span class="built_in">print</span>(os.path.join(dirname, filename))</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &quot;Save &amp; Run All&quot; </span></span><br><span class="line"><span class="comment"># You can also write temporary files to /kaggle/temp/, but they won&#x27;t be saved outside of the current session</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>/kaggle/input/bike-sharing-demand/sampleSubmission.csv
+/kaggle/input/bike-sharing-demand/train.csv
+/kaggle/input/bike-sharing-demand/test.csv
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib </span><br><span class="line"><span class="keyword">import</span> calendar </span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br><span class="line"><span class="keyword">import</span> missingno <span class="keyword">as</span> msno</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression,Ridge,Lasso</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> GradientBoostingRegressor</span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">from</span> xgboost <span class="keyword">import</span> XGBClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br></pre></td></tr></table></figure>
+
+<h2 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA_PATH = <span class="string">&#x27;/kaggle/input/bike-sharing-demand/&#x27;</span></span><br><span class="line">train = pd.read_csv(DATA_PATH + <span class="string">&#x27;train.csv&#x27;</span>)</span><br><span class="line">test = pd.read_csv(DATA_PATH + <span class="string">&#x27;test.csv&#x27;</span>)</span><br><span class="line">submission = pd.read_csv(DATA_PATH + <span class="string">&#x27;sampleSubmission.csv&#x27;</span>)</span><br><span class="line">train.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10886 entries, 0 to 10885
+Data columns (total 12 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   datetime    10886 non-null  object 
+ 1   season      10886 non-null  int64  
+ 2   holiday     10886 non-null  int64  
+ 3   workingday  10886 non-null  int64  
+ 4   weather     10886 non-null  int64  
+ 5   temp        10886 non-null  float64
+ 6   atemp       10886 non-null  float64
+ 7   humidity    10886 non-null  int64  
+ 8   windspeed   10886 non-null  float64
+ 9   casual      10886 non-null  int64  
+ 10  registered  10886 non-null  int64  
+ 11  count       10886 non-null  int64  
+dtypes: float64(3), int64(8), object(1)
+memory usage: 1020.7+ KB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = train.copy()</span><br></pre></td></tr></table></figure>
+
+<h2 id="결측치-유무-확인"><a href="#결측치-유무-확인" class="headerlink" title="결측치 유무 확인"></a>결측치 유무 확인</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msno.matrix(train, figsize=(<span class="number">12</span>,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_7_1.png" alt="png"></p>
+<h2 id="이상치확인"><a href="#이상치확인" class="headerlink" title="이상치확인"></a>이상치확인</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># count자체와 season,holiday,workingday를 box플롯으로 시각화</span></span><br><span class="line">fig, ax=plt.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>)</span><br><span class="line">fig.set_size_inches(<span class="number">20</span>,<span class="number">15</span>)</span><br><span class="line">sns.boxplot(y=<span class="string">&#x27;count&#x27;</span>, data=train, orient=<span class="string">&#x27;v&#x27;</span>, ax= ax[<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;count&#x27;</span>)</span><br><span class="line">sns.boxplot(x=<span class="string">&#x27;season&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>, data=train, orient=<span class="string">&#x27;v&#x27;</span>, ax= ax[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;count&#x27;</span>)</span><br><span class="line">sns.boxplot(x=<span class="string">&#x27;holiday&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>, data=train, orient=<span class="string">&#x27;v&#x27;</span>, ax= ax[<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;count&#x27;</span>)</span><br><span class="line">sns.boxplot(x=<span class="string">&#x27;workingday&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>, data=train, orient=<span class="string">&#x27;v&#x27;</span>, ax= ax[<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;count&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Text(0.5, 1.0, &#39;count&#39;)
+</code></pre>
+<p><img src="/images/day07/day0711/output_9_1.png" alt="png"></p>
+<h3 id="이상치-제거"><a href="#이상치-제거" class="headerlink" title="이상치 제거"></a>이상치 제거</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># count 칼럼의 이상치 제거 </span></span><br><span class="line">trainWithOutliers = train[np.<span class="built_in">abs</span>(train[<span class="string">&quot;count&quot;</span>]-train[<span class="string">&#x27;count&#x27;</span>].mean())&lt;= (<span class="number">3</span>*train[<span class="string">&#x27;count&#x27;</span>].std())]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="string">&quot;Shape Of The Before Ouliers: &quot;</span>,train.shape)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;Shape Of The After Ouliers: &quot;</span>,trainWithOutliers.shape)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Shape Of The Before Ouliers:  (10886, 12)
+Shape Of The After Ouliers:  (10739, 12)
+</code></pre>
+<h3 id="데이터-가공전-상관관계-분석"><a href="#데이터-가공전-상관관계-분석" class="headerlink" title="데이터 가공전 상관관계 분석"></a>데이터 가공전 상관관계 분석</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10886 entries, 0 to 10885
+Data columns (total 12 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   datetime    10886 non-null  object 
+ 1   season      10886 non-null  int64  
+ 2   holiday     10886 non-null  int64  
+ 3   workingday  10886 non-null  int64  
+ 4   weather     10886 non-null  int64  
+ 5   temp        10886 non-null  float64
+ 6   atemp       10886 non-null  float64
+ 7   humidity    10886 non-null  int64  
+ 8   windspeed   10886 non-null  float64
+ 9   casual      10886 non-null  int64  
+ 10  registered  10886 non-null  int64  
+ 11  count       10886 non-null  int64  
+dtypes: float64(3), int64(8), object(1)
+memory usage: 1020.7+ KB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 각각의 컬럼별 상관관계 시각화</span></span><br><span class="line">CorrMat = train[[<span class="string">&#x27;temp&#x27;</span>,<span class="string">&#x27;atemp&#x27;</span>,<span class="string">&#x27;casual&#x27;</span>,<span class="string">&#x27;holiday&#x27;</span>,<span class="string">&#x27;registered&#x27;</span>,<span class="string">&#x27;humidity&#x27;</span>, <span class="string">&#x27;windspeed&#x27;</span>,<span class="string">&#x27;count&#x27;</span>]].corr()</span><br><span class="line">mask=np.array(CorrMat)</span><br><span class="line">mask[np.tril_indices_from(mask)] = <span class="literal">False</span></span><br><span class="line">fig = plt.figure(figsize=[<span class="number">20</span>,<span class="number">10</span>])</span><br><span class="line">sns.heatmap(CorrMat,mask=mask,vmax=<span class="number">1</span>,vmin=-<span class="number">0.4</span>,annot=<span class="literal">True</span>,square=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_15_1.png" alt="png"></p>
+<h2 id="시간데이터-처리"><a href="#시간데이터-처리" class="headerlink" title="시간데이터 처리"></a>시간데이터 처리</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 시간데이터를 년,달,일,시,평일로 분리</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">train[<span class="string">&#x27;date&#x27;</span>]= pd.to_datetime(train[<span class="string">&#x27;datetime&#x27;</span>])</span><br><span class="line">train[<span class="string">&#x27;year&#x27;</span>]= train[<span class="string">&#x27;date&#x27;</span>].dt.year</span><br><span class="line">train[<span class="string">&#x27;month&#x27;</span>]=train[<span class="string">&#x27;date&#x27;</span>].dt.month</span><br><span class="line">train[<span class="string">&#x27;day&#x27;</span>]=train[<span class="string">&#x27;date&#x27;</span>].dt.day</span><br><span class="line">train[<span class="string">&#x27;hour&#x27;</span>]=train[<span class="string">&#x27;date&#x27;</span>].dt.hour</span><br><span class="line">train[<span class="string">&#x27;weekday&#x27;</span>]=train[<span class="string">&#x27;date&#x27;</span>].dt.day_name()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10886 entries, 0 to 10885
+Data columns (total 18 columns):
+ #   Column      Non-Null Count  Dtype         
+---  ------      --------------  -----         
+ 0   datetime    10886 non-null  object        
+ 1   season      10886 non-null  int64         
+ 2   holiday     10886 non-null  int64         
+ 3   workingday  10886 non-null  int64         
+ 4   weather     10886 non-null  int64         
+ 5   temp        10886 non-null  float64       
+ 6   atemp       10886 non-null  float64       
+ 7   humidity    10886 non-null  int64         
+ 8   windspeed   10886 non-null  float64       
+ 9   casual      10886 non-null  int64         
+ 10  registered  10886 non-null  int64         
+ 11  count       10886 non-null  int64         
+ 12  date        10886 non-null  datetime64[ns]
+ 13  year        10886 non-null  int64         
+ 14  month       10886 non-null  int64         
+ 15  day         10886 non-null  int64         
+ 16  hour        10886 non-null  int64         
+ 17  weekday     10886 non-null  object        
+dtypes: datetime64[ns](1), float64(3), int64(12), object(2)
+memory usage: 1.5+ MB
+</code></pre>
+<h3 id="필요가-없어진-date-삭제"><a href="#필요가-없어진-date-삭제" class="headerlink" title="필요가 없어진 date 삭제"></a>필요가 없어진 date 삭제</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># date컬럼이 이제 필요없으니 삭제</span></span><br><span class="line">train = train.drop(<span class="string">&#x27;date&#x27;</span>, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="count값과-뽑아낸-컬럼들간의-관계-파악"><a href="#count값과-뽑아낸-컬럼들간의-관계-파악" class="headerlink" title="count값과 뽑아낸 컬럼들간의 관계 파악"></a>count값과 뽑아낸 컬럼들간의 관계 파악</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>,)</span><br><span class="line">fig.set_size_inches(<span class="number">12</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sns.barplot(x=<span class="string">&#x27;year&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;year&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;month&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;month&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;day&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;hour&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;hour&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Text(0.5, 1.0, &#39;hour&#39;)
+</code></pre>
+<p><img src="/images/day07/day0711/output_22_1.png" alt="png"></p>
+<h3 id="날씨-계절-작업일-휴일과-count관계-파악"><a href="#날씨-계절-작업일-휴일과-count관계-파악" class="headerlink" title="날씨, 계절, 작업일, 휴일과 count관계 파악"></a>날씨, 계절, 작업일, 휴일과 count관계 파악</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>)</span><br><span class="line">fig.set_size_inches(<span class="number">12</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">sns.barplot(x=<span class="string">&#x27;weather&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;weather&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;season&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;season&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;workingday&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;workingday&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;holiday&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;holiday&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Text(0.5, 1.0, &#39;holiday&#39;)
+</code></pre>
+<p><img src="/images/day07/day0711/output_24_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">badToRight</span>(<span class="params">month</span>):</span><br><span class="line">    <span class="keyword">if</span> month <span class="keyword">in</span> [<span class="number">12</span>,<span class="number">1</span>,<span class="number">2</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">4</span></span><br><span class="line">    <span class="keyword">elif</span> month <span class="keyword">in</span> [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> month <span class="keyword">in</span> [<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">elif</span> month <span class="keyword">in</span> [<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line">train[<span class="string">&#x27;season&#x27;</span>] = train.month.apply(badToRight)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>)</span><br><span class="line">fig.set_size_inches(<span class="number">12</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">sns.barplot(x=<span class="string">&#x27;weather&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;weather&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;season&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">0</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;season&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;workingday&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">0</span>].set_title(<span class="string">&#x27;workingday&#x27;</span>)</span><br><span class="line">sns.barplot(x=<span class="string">&#x27;holiday&#x27;</span>,y=<span class="string">&#x27;count&#x27;</span>,data=train,ax=ax[<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>,<span class="number">1</span>].set_title(<span class="string">&#x27;holiday&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Text(0.5, 1.0, &#39;holiday&#39;)
+</code></pre>
+<p><img src="/images/day07/day0711/output_26_1.png" alt="png"></p>
+<h1 id="남은칼럼과-count와-비교"><a href="#남은칼럼과-count와-비교" class="headerlink" title="남은칼럼과 count와 비교"></a>남은칼럼과 count와 비교</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">fig.tight_layout()</span><br><span class="line">fig.set_size_inches(<span class="number">12</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">sns.regplot(x=<span class="string">&#x27;temp&#x27;</span>, y=<span class="string">&#x27;count&#x27;</span>, data = train, scatter_kws = &#123;<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.2</span>&#125;, line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;blue&#x27;</span>&#125;, ax=ax[<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">sns.regplot(x=<span class="string">&#x27;atemp&#x27;</span>, y=<span class="string">&#x27;count&#x27;</span>, data = train, scatter_kws = &#123;<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.2</span>&#125;, line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;blue&#x27;</span>&#125;, ax=ax[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">sns.regplot(x=<span class="string">&#x27;humidity&#x27;</span>, y=<span class="string">&#x27;count&#x27;</span>, data = train, scatter_kws = &#123;<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.2</span>&#125;, line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;blue&#x27;</span>&#125;, ax=ax[<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">sns.regplot(x=<span class="string">&#x27;windspeed&#x27;</span>, y=<span class="string">&#x27;count&#x27;</span>, data = train, scatter_kws = &#123;<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.2</span>&#125;, line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;blue&#x27;</span>&#125;, ax=ax[<span class="number">1</span>,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:xlabel=&#39;windspeed&#39;, ylabel=&#39;count&#39;&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_28_1.png" alt="png"></p>
+<h3 id="상관계수-시각화"><a href="#상관계수-시각화" class="headerlink" title="상관계수 시각화"></a>상관계수 시각화</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CorrMat = train.corr()</span><br><span class="line">mask = np.array(CorrMat)</span><br><span class="line">mask[np.tril_indices_from(mask)] = <span class="literal">False</span></span><br><span class="line">fig = plt.figure(figsize=[<span class="number">20</span>,<span class="number">10</span>])</span><br><span class="line">sns.heatmap(CorrMat,mask=mask,vmin=-<span class="number">0.4</span>,annot=<span class="literal">True</span>,square=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_30_1.png" alt="png"></p>
+<h2 id="count의-표준화"><a href="#count의-표준화" class="headerlink" title="count의 표준화"></a>count의 표준화</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>)</span><br><span class="line">fig.set_size_inches(<span class="number">10</span>,<span class="number">6</span>)</span><br><span class="line">sns.distplot(train[<span class="string">&#x27;count&#x27;</span>], ax=ax[<span class="number">0</span>,<span class="number">0</span>])</span><br><span class="line">stats.probplot(train[<span class="string">&#x27;count&#x27;</span>],dist=<span class="string">&#x27;norm&#x27;</span>,fit=<span class="literal">True</span>,plot=ax[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">sns.distplot(np.log(trainWithOutliers[<span class="string">&#x27;count&#x27;</span>]),ax=ax[<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">stats.probplot(np.log(trainWithOutliers[<span class="string">&#x27;count&#x27;</span>]),dist=<span class="string">&#x27;norm&#x27;</span>,fit=<span class="literal">True</span>,plot=ax[<span class="number">1</span>,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>((array([-3.82819677, -3.60401975, -3.48099008, ...,  3.48099008,
+          3.60401975,  3.82819677]),
+  array([0.        , 0.        , 0.        , ..., 6.59578051, 6.5971457 ,
+         6.59850903])),
+ (1.40968461015429, 4.523106928071492, 0.9537631807794262))
+</code></pre>
+<p><img src="/images/day07/day0711/output_32_1.png" alt="png"></p>
+<h3 id="히트맵을-보고-두개의-컬럼-시각화"><a href="#히트맵을-보고-두개의-컬럼-시각화" class="headerlink" title="히트맵을 보고 두개의 컬럼 시각화"></a>히트맵을 보고 두개의 컬럼 시각화</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10886 entries, 0 to 10885
+Data columns (total 17 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   datetime    10886 non-null  object 
+ 1   season      10886 non-null  int64  
+ 2   holiday     10886 non-null  int64  
+ 3   workingday  10886 non-null  int64  
+ 4   weather     10886 non-null  int64  
+ 5   temp        10886 non-null  float64
+ 6   atemp       10886 non-null  float64
+ 7   humidity    10886 non-null  int64  
+ 8   windspeed   10886 non-null  float64
+ 9   casual      10886 non-null  int64  
+ 10  registered  10886 non-null  int64  
+ 11  count       10886 non-null  int64  
+ 12  year        10886 non-null  int64  
+ 13  month       10886 non-null  int64  
+ 14  day         10886 non-null  int64  
+ 15  hour        10886 non-null  int64  
+ 16  weekday     10886 non-null  object 
+dtypes: float64(3), int64(12), object(2)
+memory usage: 1.4+ MB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(nrows = <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 전체 그래프 기본설정</span></span><br><span class="line"><span class="comment">#  전체 그래프 사이즈 관리</span></span><br><span class="line">fig.set_size_inches(<span class="number">12</span>,<span class="number">18</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 시간과 카운트에 대해 시각화</span></span><br><span class="line">sns.pointplot(x = <span class="string">&#x27;hour&#x27;</span>, y =<span class="string">&#x27;count&#x27;</span>, hue = <span class="string">&#x27;workingday&#x27;</span>, data = train, ax=ax[<span class="number">0</span>])</span><br><span class="line">sns.pointplot(x = <span class="string">&#x27;hour&#x27;</span>, y =<span class="string">&#x27;count&#x27;</span>, hue = <span class="string">&#x27;holiday&#x27;</span>, data = train, ax=ax[<span class="number">1</span>])</span><br><span class="line">sns.pointplot(x = <span class="string">&#x27;hour&#x27;</span>, y =<span class="string">&#x27;count&#x27;</span>, hue = <span class="string">&#x27;weekday&#x27;</span>, data = train, ax=ax[<span class="number">2</span>])</span><br><span class="line">sns.pointplot(x = <span class="string">&#x27;hour&#x27;</span>, y =<span class="string">&#x27;count&#x27;</span>, hue = <span class="string">&#x27;season&#x27;</span>, data = train, ax=ax[<span class="number">3</span>])</span><br><span class="line">sns.pointplot(x = <span class="string">&#x27;hour&#x27;</span>, y =<span class="string">&#x27;count&#x27;</span>, hue = <span class="string">&#x27;weather&#x27;</span>, data = train, ax=ax[<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:xlabel=&#39;hour&#39;, ylabel=&#39;count&#39;&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_35_1.png" alt="png"></p>
+<ul>
+<li>train의 weather값이 이상함을 발견</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 전체데이터중 weather=4인값 확</span></span><br><span class="line">train[train.weather == <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datetime</th>
+      <th>season</th>
+      <th>holiday</th>
+      <th>workingday</th>
+      <th>weather</th>
+      <th>temp</th>
+      <th>atemp</th>
+      <th>humidity</th>
+      <th>windspeed</th>
+      <th>casual</th>
+      <th>registered</th>
+      <th>count</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>hour</th>
+      <th>weekday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5631</th>
+      <td>2012-01-09 18:00:00</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>8.2</td>
+      <td>11.365</td>
+      <td>86</td>
+      <td>6.0032</td>
+      <td>6</td>
+      <td>158</td>
+      <td>164</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>9</td>
+      <td>18</td>
+      <td>Monday</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(nrows = <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 전체 그래프 기본설정</span></span><br><span class="line"><span class="comment">#  전체 그래프 사이즈 관리</span></span><br><span class="line">fig.set_size_inches(<span class="number">12</span>,<span class="number">18</span>)</span><br><span class="line"></span><br><span class="line">sns.pointplot(x = <span class="string">&#x27;month&#x27;</span>, y =<span class="string">&#x27;count&#x27;</span>, hue = <span class="string">&#x27;weather&#x27;</span>, data = train, ax=ax[<span class="number">0</span>])</span><br><span class="line">sns.barplot(x = <span class="string">&#x27;month&#x27;</span>, y =<span class="string">&#x27;count&#x27;</span>, data = train, ax=ax[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:xlabel=&#39;month&#39;, ylabel=&#39;count&#39;&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_38_1.png" alt="png"></p>
+<ul>
+<li>windspeed는 0인값이 많은데 이는 0이었는지 측정하지못해서 0인지 두개의 경우가있다, 우리는 후자의 경우를 사용한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 0 : Sunday -&gt; 6: saturday</span></span><br><span class="line"><span class="comment"># 머린러닝을 위해서 숫자로 변환해준다</span></span><br><span class="line">train[<span class="string">&#x27;weekday&#x27;</span>]= train.weekday.astype(<span class="string">&#x27;category&#x27;</span>)</span><br><span class="line">train.weekday.cat.categories =[<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;6&#x27;</span>,<span class="string">&#x27;0&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="RandomForest로-Windspeed값-부여"><a href="#RandomForest로-Windspeed값-부여" class="headerlink" title="RandomForest로 Windspeed값 부여"></a>RandomForest로 Windspeed값 부여</h3><ul>
+<li>데이터를 windspeed &#x3D;&#x3D; 0, windspeed !&#x3D; 0로 분리</li>
+<li>학습시킬 데이터 중 0이아닌 데이터프레임에서는 Windspeed만 담긴 Series와 학습시킬 column들의 데이터프레임으로 분리</li>
+<li>학습 후 Windspeed가 0인 데이터프레임에서 학습시킨 컬럼과 같게 추출해서 값을 부여받은 후, windspeed가 0인 데이터 프레임에 부여</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windspeed = 0</span></span><br><span class="line">windspeed_0 = train[train.windspeed == <span class="number">0</span>]</span><br><span class="line"><span class="comment"># Windspeed != 0</span></span><br><span class="line">windspeed_not0 = train[train.windspeed != <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># windspeed=0인 프레임에 미포함</span></span><br><span class="line">windspeed_0_df = windspeed_0.drop([<span class="string">&#x27;windspeed&#x27;</span>,<span class="string">&#x27;casual&#x27;</span>,<span class="string">&#x27;registered&#x27;</span>,<span class="string">&#x27;count&#x27;</span>,<span class="string">&#x27;datetime&#x27;</span>], axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># windspeed!=0인 데이터프렘인은 위와 동일하게 만들고, 학습시킬 Windspeed Series를 그대로 둠</span></span><br><span class="line">windspeed_not0_df = windspeed_not0.drop([<span class="string">&#x27;windspeed&#x27;</span>,<span class="string">&#x27;casual&#x27;</span>,<span class="string">&#x27;registered&#x27;</span>,<span class="string">&#x27;count&#x27;</span>,<span class="string">&#x27;datetime&#x27;</span>], axis=<span class="number">1</span>)</span><br><span class="line">windspeed_not0_series = windspeed_not0[<span class="string">&#x27;windspeed&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0이아닌 데이터프레임과 결과값인 시리즈 학습</span></span><br><span class="line">rf = RandomForestRegressor()</span><br><span class="line">rf.fit(windspeed_not0_df,windspeed_not0_series)</span><br><span class="line"></span><br><span class="line">predict_windspeed_0 = rf.predict(windspeed_0_df)</span><br><span class="line">windspeed_0[<span class="string">&#x27;windspeed&#x27;</span>] = predict_windspeed_0</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># windspeed_0와 windspeed_not0를 다시 합치기</span></span><br><span class="line">train=pd.concat([windspeed_0,windspeed_not0],axis =<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 합쳐진 데이터 datetime순 정렬</span></span><br><span class="line">train = train.sort_values(by=[<span class="string">&#x27;datetime&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 바뀐 windspeed와 상관계수 분석 </span></span><br><span class="line">fig = plt.figure(figsize=[<span class="number">20</span>,<span class="number">20</span>])</span><br><span class="line">ax = sns.heatmap(train.corr(),annot=<span class="literal">True</span>,square=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day07/day0711/output_45_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize=[<span class="number">5</span>,<span class="number">5</span>])</span><br><span class="line">sns.distplot(train[<span class="string">&#x27;windspeed&#x27;</span>],bins=np.linspace(train[<span class="string">&#x27;windspeed&#x27;</span>].<span class="built_in">min</span>(),train[<span class="string">&#x27;windspeed&#x27;</span>].<span class="built_in">max</span>(),<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:xlabel=&#39;windspeed&#39;, ylabel=&#39;Density&#39;&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_46_1.png" alt="png"></p>
+<h2 id="전처리-진행"><a href="#전처리-진행" class="headerlink" title="전처리 진행"></a>전처리 진행</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(DATA_PATH + <span class="string">&#x27;train.csv&#x27;</span>)</span><br><span class="line">test = pd.read_csv(DATA_PATH + <span class="string">&#x27;test.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="데이터를-합친상태에서-한번에-진행"><a href="#데이터를-합친상태에서-한번에-진행" class="headerlink" title="데이터를 합친상태에서 한번에 진행"></a>데이터를 합친상태에서 한번에 진행</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">combine = train.append(test)</span><br><span class="line">combine.reset_index(inplace=<span class="literal">True</span>)</span><br><span class="line">combine.drop(<span class="string">&#x27;index&#x27;</span>,inplace=<span class="literal">True</span>,axis=<span class="number">1</span>)</span><br><span class="line">combine.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 17379 entries, 0 to 17378
+Data columns (total 17 columns):
+ #   Column      Non-Null Count  Dtype   
+---  ------      --------------  -----   
+ 0   datetime    17379 non-null  object  
+ 1   season      17379 non-null  int64   
+ 2   holiday     17379 non-null  int64   
+ 3   workingday  17379 non-null  int64   
+ 4   weather     17379 non-null  int64   
+ 5   temp        17379 non-null  float64 
+ 6   atemp       17379 non-null  float64 
+ 7   humidity    17379 non-null  int64   
+ 8   windspeed   17379 non-null  float64 
+ 9   casual      10886 non-null  float64 
+ 10  registered  10886 non-null  float64 
+ 11  count       10886 non-null  float64 
+ 12  year        10886 non-null  float64 
+ 13  month       10886 non-null  float64 
+ 14  day         10886 non-null  float64 
+ 15  hour        10886 non-null  float64 
+ 16  weekday     10886 non-null  category
+dtypes: category(1), float64(10), int64(5), object(1)
+memory usage: 2.1+ MB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">combine[<span class="string">&#x27;date&#x27;</span>]= pd.to_datetime(combine[<span class="string">&#x27;datetime&#x27;</span>])</span><br><span class="line">combine[<span class="string">&#x27;year&#x27;</span>]= combine[<span class="string">&#x27;date&#x27;</span>].dt.year</span><br><span class="line">combine[<span class="string">&#x27;month&#x27;</span>]=combine[<span class="string">&#x27;date&#x27;</span>].dt.month</span><br><span class="line">combine[<span class="string">&#x27;day&#x27;</span>]=combine[<span class="string">&#x27;date&#x27;</span>].dt.day</span><br><span class="line">combine[<span class="string">&#x27;hour&#x27;</span>]=combine[<span class="string">&#x27;date&#x27;</span>].dt.hour</span><br><span class="line">combine[<span class="string">&#x27;weekday&#x27;</span>]=combine[<span class="string">&#x27;date&#x27;</span>].dt.day_name()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">combine.weekday = combine.weekday.astype(<span class="string">&#x27;category&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">combine.weekday.cat.categories = [<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;6&#x27;</span>,<span class="string">&#x27;0&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dataWind0 = combine[combine[<span class="string">&quot;windspeed&quot;</span>]==<span class="number">0</span>]</span><br><span class="line">dataWindNot0 = combine[combine[<span class="string">&quot;windspeed&quot;</span>]!=<span class="number">0</span>]</span><br><span class="line">rfModel_wind = RandomForestRegressor()</span><br><span class="line">windColumns = [<span class="string">&quot;season&quot;</span>,<span class="string">&quot;weather&quot;</span>,<span class="string">&quot;humidity&quot;</span>,<span class="string">&quot;month&quot;</span>,<span class="string">&quot;temp&quot;</span>,<span class="string">&quot;year&quot;</span>,<span class="string">&quot;atemp&quot;</span>]</span><br><span class="line">rfModel_wind.fit(dataWindNot0[windColumns], dataWindNot0[<span class="string">&quot;windspeed&quot;</span>])</span><br><span class="line"></span><br><span class="line">wind0Values = rfModel_wind.predict(X= dataWind0[windColumns])</span><br><span class="line">dataWind0[<span class="string">&quot;windspeed&quot;</span>] = wind0Values</span><br><span class="line">combine = dataWindNot0.append(dataWind0)</span><br><span class="line">combine.reset_index(inplace=<span class="literal">True</span>)</span><br><span class="line">combine.drop(<span class="string">&#x27;index&#x27;</span>,inplace=<span class="literal">True</span>,axis=<span class="number">1</span>)</span><br><span class="line">combine.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 17379 entries, 0 to 17378
+Data columns (total 18 columns):
+ #   Column      Non-Null Count  Dtype         
+---  ------      --------------  -----         
+ 0   datetime    17379 non-null  object        
+ 1   season      17379 non-null  int64         
+ 2   holiday     17379 non-null  int64         
+ 3   workingday  17379 non-null  int64         
+ 4   weather     17379 non-null  int64         
+ 5   temp        17379 non-null  float64       
+ 6   atemp       17379 non-null  float64       
+ 7   humidity    17379 non-null  int64         
+ 8   windspeed   17379 non-null  float64       
+ 9   casual      10886 non-null  float64       
+ 10  registered  10886 non-null  float64       
+ 11  count       10886 non-null  float64       
+ 12  year        17379 non-null  int64         
+ 13  month       17379 non-null  int64         
+ 14  day         17379 non-null  int64         
+ 15  hour        17379 non-null  int64         
+ 16  weekday     17379 non-null  category      
+ 17  date        17379 non-null  datetime64[ns]
+dtypes: category(1), datetime64[ns](1), float64(6), int64(9), object(1)
+memory usage: 2.3+ MB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">combine = pd.concat([dataWind0,dataWindNot0], axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="인덱싱"><a href="#인덱싱" class="headerlink" title="인덱싱"></a>인덱싱</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 우리가 가진 column중에 값이 일정하고 정해져 있으면 category로 변경</span></span><br><span class="line"><span class="comment"># 필요하지 않은 column들은 버리기</span></span><br><span class="line">categoricalFeatureNames = [<span class="string">&quot;season&quot;</span>,<span class="string">&quot;holiday&quot;</span>,<span class="string">&quot;workingday&quot;</span>,<span class="string">&quot;weather&quot;</span>,<span class="string">&quot;weekday&quot;</span>,<span class="string">&quot;month&quot;</span>,<span class="string">&quot;year&quot;</span>,<span class="string">&quot;hour&quot;</span>]</span><br><span class="line">numericalFeatureNames = [<span class="string">&quot;temp&quot;</span>,<span class="string">&quot;humidity&quot;</span>,<span class="string">&quot;windspeed&quot;</span>,<span class="string">&quot;atemp&quot;</span>]</span><br><span class="line">dropFeatures = [<span class="string">&#x27;casual&#x27;</span>,<span class="string">&quot;count&quot;</span>,<span class="string">&quot;datetime&quot;</span>,<span class="string">&quot;date&quot;</span>,<span class="string">&quot;registered&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># categorical 하게 변환</span></span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> categoricalFeatureNames:</span><br><span class="line">    combine[col] = combine[col].astype(<span class="string">&#x27;category&#x27;</span>)</span><br><span class="line"><span class="comment">#for col in numericalFeatureNames:</span></span><br><span class="line">   <span class="comment"># combine[col] = combine[col].astype(&#x27;int64&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="데이터-분리"><a href="#데이터-분리" class="headerlink" title="데이터 분리"></a>데이터 분리</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">train = combine[pd.notnull(combine[<span class="string">&#x27;count&#x27;</span>])].sort_values(by=<span class="string">&#x27;datetime&#x27;</span>)</span><br><span class="line">test = combine[~pd.notnull(combine[<span class="string">&#x27;count&#x27;</span>])].sort_values(by=<span class="string">&#x27;datetime&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#데이터 훈련시 집어 넣게 될 각각의 결과 값들</span></span><br><span class="line">datetimecol = test[<span class="string">&#x27;datetime&#x27;</span>]</span><br><span class="line">yLabels = train[<span class="string">&#x27;count&#x27;</span>] <span class="comment">#count</span></span><br><span class="line">yLabelsRegistered = train[<span class="string">&#x27;registered&#x27;</span>] <span class="comment">#등록된 사용자</span></span><br><span class="line">yLabelsCasual = train[<span class="string">&#x27;casual&#x27;</span>] <span class="comment">#임시 사용자</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 필요없는 컬럼 버리기</span></span><br><span class="line">train = train.drop(dropFeatures,axis=<span class="number">1</span>)</span><br><span class="line">test = test.drop(dropFeatures,axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train[<span class="string">&#x27;weather&#x27;</span>].value_counts()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>1    7192
+2    2834
+3     859
+4       1
+Name: weather, dtype: int64
+</code></pre>
+<h2 id="RMSLE-구하기"><a href="#RMSLE-구하기" class="headerlink" title="RMSLE 구하기"></a>RMSLE 구하기</h2><ul>
+<li>오차를 제곱하여 평균한 값의 제곱근</li>
+<li>0에 가까울수록 정밀도가 높다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">rmsle</span>(<span class="params">y, y_,convertExp=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="keyword">if</span> convertExp:</span><br><span class="line">        y = np.exp(y), </span><br><span class="line">        y_ = np.exp(y_)</span><br><span class="line">    log1 = np.nan_to_num(np.array([np.log(v + <span class="number">1</span>) <span class="keyword">for</span> v <span class="keyword">in</span> y]))</span><br><span class="line">    log2 = np.nan_to_num(np.array([np.log(v + <span class="number">1</span>) <span class="keyword">for</span> v <span class="keyword">in</span> y_]))</span><br><span class="line">    calc = (log1 - log2) ** <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> np.sqrt(np.mean(calc))</span><br></pre></td></tr></table></figure>
+
+<p>아래의 커널을 참조하여 yLabels를 로그화 하려는데 왜 np.log가 아닌 np.log1p를 활용하는가??<br>np.log1p는 np.log(1+x)와 동일. 이유는 만약 어떤 x값이 0인데 이를 log하게되면, (-)무한대로 수렴하기 때문에 np.log1p를 활용함. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 선형회귀모델 사용</span></span><br><span class="line">lr = LinearRegression()</span><br><span class="line"></span><br><span class="line">yLabelslog = np.log1p(yLabels)</span><br><span class="line"><span class="comment">#선형 모델에 우리의 데이터를 학습</span></span><br><span class="line">lr.fit(train,yLabelslog)</span><br><span class="line"><span class="comment">#결과 값 도출</span></span><br><span class="line">preds = lr.predict(train)</span><br><span class="line"><span class="comment">#rmsle함수의 element에 np.exp()지수 함수를 취하는 이유는 우리의 preds값에 얻어진 것은 한번 log를 한 값이기 때문에 원래 모델에는 log를 하지 않은 원래의 값을 넣기 위함임.</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;RMSLE Value For Linear Regression: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(rmsle(np.exp(yLabelslog),np.exp(preds),<span class="literal">False</span>)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>RMSLE Value For Linear Regression: 0.977363401299843
+</code></pre>
+<ul>
+<li>데이터 훈련시 Log값을 취하는 이유??</li>
+<li>우리가 결과 값으로 투입하는 Count값이 최저 값과 최고 값의 낙폭이 너무 커서</li>
+<li>만약 log를 취하지 않고 해보면 print하는 결과 값이 inf(infinity)로 뜨게 됨</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># count값의 분포</span></span><br><span class="line">sns.distplot(yLabels,bins=<span class="built_in">range</span>(yLabels.<span class="built_in">min</span>().astype(<span class="string">&#x27;int&#x27;</span>),yLabels.<span class="built_in">max</span>().astype(<span class="string">&#x27;int&#x27;</span>)))</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:xlabel=&#39;count&#39;, ylabel=&#39;Density&#39;&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_68_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 훈련 데이터 셋의 count 갯수 </span></span><br><span class="line"><span class="built_in">print</span>(yLabels.count())</span><br></pre></td></tr></table></figure>
+
+<pre><code>10886
+</code></pre>
+<h2 id="GridSearchCV-사용"><a href="#GridSearchCV-사용" class="headerlink" title="GridSearchCV 사용"></a>GridSearchCV 사용</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Ridge모델은 L2제약을 가지는 선형회귀모델에서 개선된 모델이며 해당 모델에서 유의 깊게 튜닝해야하는 파라미터는 alpha값이다.</span></span><br><span class="line">ridge = Ridge()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ridge_params = &#123;<span class="string">&#x27;max_iter&#x27;</span>:[<span class="number">3000</span>],<span class="string">&#x27;alpha&#x27;</span>:[<span class="number">0.1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">30</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">800</span>,<span class="number">900</span>,<span class="number">1000</span>]&#125;</span><br><span class="line">rmsle_scorer = metrics.make_scorer(rmsle,greater_is_better=<span class="literal">False</span>)</span><br><span class="line">grid_ridge = GridSearchCV(ridge,ridge_params,scoring=rmsle_scorer,cv=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grid_ridge.fit(train,yLabelslog)</span><br><span class="line">preds = grid_ridge.predict(train)</span><br><span class="line"><span class="built_in">print</span>(grid_ridge.best_params_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;RMSLE Value for Ridge Regression &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(rmsle(np.exp(yLabelslog),np.exp(preds),<span class="literal">False</span>)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#123;&#39;alpha&#39;: 0.1, &#39;max_iter&#39;: 3000&#125;
+RMSLE Value for Ridge Regression 0.9773633767196275
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GridSearchCV의 변수 grid_ridge에 cv_result_를 통해 alpha값의 변화에 따라 평균값의 변화를 파악</span></span><br><span class="line">df = pd.DataFrame(grid_ridge.cv_results_)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>mean_score_time</th>
+      <th>std_score_time</th>
+      <th>param_alpha</th>
+      <th>param_max_iter</th>
+      <th>params</th>
+      <th>split0_test_score</th>
+      <th>split1_test_score</th>
+      <th>split2_test_score</th>
+      <th>split3_test_score</th>
+      <th>split4_test_score</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.016754</td>
+      <td>0.002873</td>
+      <td>0.011477</td>
+      <td>0.000439</td>
+      <td>0.1</td>
+      <td>3000</td>
+      <td>{'alpha': 0.1, 'max_iter': 3000}</td>
+      <td>-1.001865</td>
+      <td>-0.904066</td>
+      <td>-1.043955</td>
+      <td>-1.005283</td>
+      <td>-0.979745</td>
+      <td>-0.986983</td>
+      <td>0.046325</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.014957</td>
+      <td>0.000744</td>
+      <td>0.011333</td>
+      <td>0.000278</td>
+      <td>1</td>
+      <td>3000</td>
+      <td>{'alpha': 1, 'max_iter': 3000}</td>
+      <td>-1.001878</td>
+      <td>-0.904065</td>
+      <td>-1.043974</td>
+      <td>-1.005278</td>
+      <td>-0.979748</td>
+      <td>-0.986988</td>
+      <td>0.046330</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.015233</td>
+      <td>0.000405</td>
+      <td>0.011557</td>
+      <td>0.000282</td>
+      <td>2</td>
+      <td>3000</td>
+      <td>{'alpha': 2, 'max_iter': 3000}</td>
+      <td>-1.001893</td>
+      <td>-0.904063</td>
+      <td>-1.043994</td>
+      <td>-1.005273</td>
+      <td>-0.979751</td>
+      <td>-0.986995</td>
+      <td>0.046336</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.015063</td>
+      <td>0.000512</td>
+      <td>0.012084</td>
+      <td>0.001195</td>
+      <td>3</td>
+      <td>3000</td>
+      <td>{'alpha': 3, 'max_iter': 3000}</td>
+      <td>-1.001908</td>
+      <td>-0.904062</td>
+      <td>-1.044014</td>
+      <td>-1.005267</td>
+      <td>-0.979754</td>
+      <td>-0.987001</td>
+      <td>0.046342</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.015356</td>
+      <td>0.000673</td>
+      <td>0.011706</td>
+      <td>0.000285</td>
+      <td>4</td>
+      <td>3000</td>
+      <td>{'alpha': 4, 'max_iter': 3000}</td>
+      <td>-1.001923</td>
+      <td>-0.904061</td>
+      <td>-1.044034</td>
+      <td>-1.005262</td>
+      <td>-0.979757</td>
+      <td>-0.987008</td>
+      <td>0.046347</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Ridge모델은 선형회귀모델에서 개선된 모델이며 유의 깊게 튜닝해야하는 파라미터는 alpha값이다.</span></span><br><span class="line">lasso = Lasso()</span><br><span class="line"></span><br><span class="line">alpha  = <span class="number">1</span>/np.array([<span class="number">0.1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">30</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,<span class="number">800</span>,<span class="number">900</span>,<span class="number">1000</span>])</span><br><span class="line">lasso_params = &#123;<span class="string">&#x27;max_iter&#x27;</span>:[<span class="number">3000</span>],<span class="string">&#x27;alpha&#x27;</span>:alpha&#125;</span><br><span class="line">grid_lasso = GridSearchCV(lasso,lasso_params,scoring=rmsle_scorer,cv=<span class="number">5</span>)</span><br><span class="line">grid_lasso.fit(train,yLabelslog)</span><br><span class="line">preds = grid_lasso.predict(train)</span><br><span class="line"><span class="built_in">print</span> (grid_lasso.best_params_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;RMSLE Value for Lasso Regression &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(rmsle(np.exp(yLabelslog),np.exp(preds),<span class="literal">False</span>)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#123;&#39;alpha&#39;: 0.005, &#39;max_iter&#39;: 3000&#125;
+RMSLE Value for Lasso Regression 0.9774401751700389
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rf = RandomForestRegressor()</span><br><span class="line"></span><br><span class="line">rf_params = &#123;<span class="string">&#x27;n_estimators&#x27;</span>:[<span class="number">1</span>,<span class="number">10</span>,<span class="number">100</span>]&#125;</span><br><span class="line">grid_rf = GridSearchCV(rf,rf_params,scoring=rmsle_scorer,cv=<span class="number">5</span>)</span><br><span class="line">grid_rf.fit(train,yLabelslog)</span><br><span class="line">preds = grid_rf.predict(train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;RMSLE Value for RandomForest &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(rmsle(np.exp(yLabelslog),np.exp(preds),<span class="literal">False</span>)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>RMSLE Value for RandomForest 0.10276681084150342
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gb = GradientBoostingRegressor()</span><br><span class="line">gb_params=&#123;<span class="string">&#x27;max_depth&#x27;</span>:<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>,<span class="number">1</span>),<span class="string">&#x27;n_estimators&#x27;</span>:[<span class="number">1</span>,<span class="number">10</span>,<span class="number">100</span>]&#125;</span><br><span class="line">grid_gb=GridSearchCV(gb,gb_params,scoring=rmsle_scorer,cv=<span class="number">5</span>)</span><br><span class="line">grid_gb.fit(train,yLabelslog)</span><br><span class="line">preds = grid_gb.predict(train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;RMSLE Value for GradientBoosting &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(rmsle(np.exp(yLabelslog),np.exp(preds),<span class="literal">False</span>)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>RMSLE Value for GradientBoosting 0.20697635288824878
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#test.info()</span></span><br><span class="line">predsTest = grid_gb.predict(test)</span><br><span class="line">fig,(ax1,ax2)= plt.subplots(ncols=<span class="number">2</span>)</span><br><span class="line">fig.set_size_inches(<span class="number">12</span>,<span class="number">5</span>)</span><br><span class="line">sns.distplot(yLabels,ax=ax1,bins=<span class="number">50</span>)</span><br><span class="line">sns.distplot(np.exp(predsTest),ax=ax2,bins=<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</code></pre>
+<p><img src="/images/day07/day0711/output_78_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">final_preds = [<span class="built_in">max</span>(<span class="number">0</span>, x) <span class="keyword">for</span> x <span class="keyword">in</span> np.exp(predsTest)]</span><br><span class="line">submission[<span class="string">&#x27;count&#x27;</span>] = final_preds </span><br><span class="line">submission.to_csv(<span class="string">&#x27;submission.csv&#x27;</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">submission.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datetime</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2011-01-20 00:00:00</td>
+      <td>10.881426</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2011-01-20 01:00:00</td>
+      <td>5.863697</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2011-01-20 02:00:00</td>
+      <td>4.181261</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2011-01-20 03:00:00</td>
+      <td>3.009467</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2011-01-20 04:00:00</td>
+      <td>2.965213</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-08T00:00:00.000Z" title="2022. 7. 8. 오전 9:00:00">2022-07-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-12T10:13:53.533Z" title="2022. 7. 12. 오후 7:13:53">2022-07-12</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Kaggle/">Kaggle</a></span><span class="level-item">14 minutes read (About 2129 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/08/day0708/">Day-16 Kaggle Bike Sharing </a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This Python 3 environment comes with many helpful analytics libraries installed</span></span><br><span class="line"><span class="comment"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span></span><br><span class="line"><span class="comment"># For example, here&#x27;s several helpful packages to load</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># linear algebra</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Input data files are available in the read-only &quot;../input/&quot; directory</span></span><br><span class="line"><span class="comment"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">for</span> dirname, _, filenames <span class="keyword">in</span> os.walk(<span class="string">&#x27;/kaggle/input&#x27;</span>):</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">        <span class="built_in">print</span>(os.path.join(dirname, filename))</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &quot;Save &amp; Run All&quot; </span></span><br><span class="line"><span class="comment"># You can also write temporary files to /kaggle/temp/, but they won&#x27;t be saved outside of the current session</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="step-1-라이브러리-불러오기"><a href="#step-1-라이브러리-불러오기" class="headerlink" title="step 1. 라이브러리 불러오기"></a>step 1. 라이브러리 불러오기</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> sklearn </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;pandas version :&quot;</span>, pd.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;numpy version :&quot;</span>, np.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;seaborn version :&quot;</span>, sns.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;matplotlib version :&quot;</span>, mpl.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;sklearn version :&quot;</span>, sklearn.__version__)</span><br></pre></td></tr></table></figure>
 
@@ -267,7 +940,7 @@
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">submission.head()</span><br></pre></td></tr></table></figure>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-07T00:00:00.000Z" title="2022. 7. 7. 오전 9:00:00">2022-07-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-08T08:17:22.115Z" title="2022. 7. 8. 오후 5:17:22">2022-07-08</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">42 minutes read (About 6342 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/07/day0707/">Day-15 Kaggle House </a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This Python 3 environment comes with many helpful analytics libraries installed</span></span><br><span class="line"><span class="comment"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span></span><br><span class="line"><span class="comment"># For example, here&#x27;s several helpful packages to load</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># linear algebra</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Input data files are available in the read-only &quot;../input/&quot; directory</span></span><br><span class="line"><span class="comment"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">for</span> dirname, _, filenames <span class="keyword">in</span> os.walk(<span class="string">&#x27;/kaggle/input&#x27;</span>):</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">        <span class="built_in">print</span>(os.path.join(dirname, filename))</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &quot;Save &amp; Run All&quot; </span></span><br><span class="line"><span class="comment"># You can also write temporary files to /kaggle/temp/, but they won&#x27;t be saved outside of the current session</span></span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-07T00:00:00.000Z" title="2022. 7. 7. 오전 9:00:00">2022-07-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-12T10:13:53.533Z" title="2022. 7. 12. 오후 7:13:53">2022-07-12</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Kaggle/">Kaggle</a></span><span class="level-item">42 minutes read (About 6342 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/07/day0707/">Day-15 Kaggle House </a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This Python 3 environment comes with many helpful analytics libraries installed</span></span><br><span class="line"><span class="comment"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span></span><br><span class="line"><span class="comment"># For example, here&#x27;s several helpful packages to load</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># linear algebra</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd <span class="comment"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Input data files are available in the read-only &quot;../input/&quot; directory</span></span><br><span class="line"><span class="comment"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">for</span> dirname, _, filenames <span class="keyword">in</span> os.walk(<span class="string">&#x27;/kaggle/input&#x27;</span>):</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">        <span class="built_in">print</span>(os.path.join(dirname, filename))</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &quot;Save &amp; Run All&quot; </span></span><br><span class="line"><span class="comment"># You can also write temporary files to /kaggle/temp/, but they won&#x27;t be saved outside of the current session</span></span><br></pre></td></tr></table></figure>
 
 <pre><code>/kaggle/input/house-prices-advanced-regression-techniques/sample_submission.csv
 /kaggle/input/house-prices-advanced-regression-techniques/data_description.txt
@@ -6773,554 +7446,7 @@ memory usage: 7.6+ KB
 <pre><code>훈련 평가 : 0.9804899950518966
 테스트평가: 0.9746459963987609
 </code></pre>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-29T00:00:00.000Z" title="2022. 6. 29. 오전 9:00:00">2022-06-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-29T08:03:40.897Z" title="2022. 6. 29. 오후 5:03:40">2022-06-29</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">13 minutes read (About 2017 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/29/day0629/">Day-9 Pandas &amp; Machine Learning</a></h1><div class="content"><h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><ul>
-<li>Python에서 데이터분석을 위한 대표적인 라이브러리</li>
-<li>비율 : np &lt; pd</li>
-</ul>
-<h3 id="기본자료형"><a href="#기본자료형" class="headerlink" title="기본자료형"></a>기본자료형</h3><p><img src="/images/day0629/Pandas.png" alt="Pandas.png"></p>
-<ul>
-<li>index : 숫자, 문자열, 데이터프레임이 올수도 있는데 중복값 허용 X</li>
-<li>series : index + 단일 column ( index + column-1)</li>
-<li>DataFrame :  index + 복수 column(index + column-1 + column-2 + …)<ul>
-<li><p>데이터프레임.groupby() -&gt; groupby 클래스</p>
-<ul>
-<li>ex) A가 클래스 정의한 메서드 (데이터프레임 info())</li>
-<li>B가 클래스 정의한 메서드(info()메서드 존재 X)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="라이브러리-불러오기"><a href="#라이브러리-불러오기" class="headerlink" title="라이브러리 불러오기"></a>라이브러리 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(pd.__version__)</span><br><span class="line"><span class="built_in">print</span>(np.__version__)</span><br></pre></td></tr></table></figure>
-
-<pre><code>1.3.5
-1.21.6
-</code></pre>
-<h2 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h2><ul>
-<li>구글 드라이브 내에서 데이터 불러오기 </li>
-<li>datatype : 같은 문자열, 숫자열인데 비트에따라 부피공간이 다르다<ul>
-<li>비트가 다르면 파생변수생성시 문제가 생길 수 있어서 맞춰줘야 한다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive&#x27;</span>)</span><br><span class="line">DATA_PATH = <span class="string">&#x27;/content/drive/MyDrive/Colab Notebooks/human_AI/Basic/Chapter 3. pandas/data/Lemonade2016.csv&#x27;</span></span><br><span class="line">lemonade = pd.read_csv(DATA_PATH)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(lemonade)) <span class="comment"># series인지 DataFrame인지 확인하기위해</span></span><br><span class="line">lemonade.info()  </span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Non_Null Count 열의 숫자가 다르다.</span></span><br><span class="line"><span class="string">int64 같은 숫자열인데 정확한 데이터 값이 다르다. </span></span><br><span class="line"><span class="string">뒤에 비트숫자가 커질수록 부피공간이 커진다.(64 -&gt; 8 = 압축)</span></span><br><span class="line"><span class="string">info를 보면 결측치를 알 수 있다.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 32 entries, 0 to 31
-Data columns (total 7 columns):
- #   Column       Non-Null Count  Dtype  
----  ------       --------------  -----  
- 0   Date         31 non-null     object 
- 1   Location     32 non-null     object 
- 2   Lemon        32 non-null     int64  
- 3   Orange       32 non-null     int64  
- 4   Temperature  32 non-null     int64  
- 5   Leaflets     31 non-null     float64
- 6   Price        32 non-null     float64
-dtypes: float64(2), int64(3), object(2)
-memory usage: 1.9+ KB
-
-
-
-
-
-&#39;\nNon_Null Count 열의 숫자가 다르다.\nint64 같은 숫자열인데 정확한 데이터 값이 다르다. \n뒤에 비트숫자가 커질수록 부피공간이 커진다.(64 -&gt; 8 = 압축)\ninfo를 보면 결측치를 알 수 있다.\n&#39;
-</code></pre>
-<h3 id="데이터-맛보기"><a href="#데이터-맛보기" class="headerlink" title="데이터 맛보기"></a>데이터 맛보기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.head()) <span class="comment"># 텍스트로 출력, head() : 데이터의 앞에서부터 보여준다</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">0,1,2,3,4 = index</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price
-0  7/1/2016     Park     97      67           70      90.0   0.25
-1  7/2/2016     Park     98      67           72      90.0   0.25
-2  7/3/2016     Park    110      77           71     104.0   0.25
-3  7/4/2016    Beach    134      99           76      98.0   0.25
-4  7/5/2016    Beach    159     118           78     135.0   0.25
-
-
-
-
-
-&#39;\n0,1,2,3,4 = index\n&#39;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.tail()) <span class="comment"># 데이터의 끝에서부터 보여준다</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price
-27  7/27/2016     Park    104      68           80      99.0   0.35
-28  7/28/2016     Park     96      63           82      90.0   0.35
-29  7/29/2016     Park    100      66           81      95.0   0.35
-30  7/30/2016    Beach     88      57           82      81.0   0.35
-31  7/31/2016    Beach     76      47           82      68.0   0.35
-</code></pre>
-<h3 id="기술통계량-보는-함수"><a href="#기술통계량-보는-함수" class="headerlink" title="기술통계량 보는 함수"></a>기술통계량 보는 함수</h3><ul>
-<li>describe()</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.describe()) <span class="comment"># std(표준편차), 4분위값, 최대최소값을 볼 수 있다</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">레몬의 표준편차가 더크다</span></span><br><span class="line"><span class="string">-&gt; 레몬의 판매량의 격차가 더크다</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>            Lemon      Orange  Temperature    Leaflets      Price
-count   32.000000   32.000000    32.000000   31.000000  32.000000
-mean   116.156250   80.000000    78.968750  108.548387   0.354688
-std     25.823357   21.863211     4.067847   20.117718   0.113137
-min     71.000000   42.000000    70.000000   68.000000   0.250000
-25%     98.000000   66.750000    77.000000   90.000000   0.250000
-50%    113.500000   76.500000    80.500000  108.000000   0.350000
-75%    131.750000   95.000000    82.000000  124.000000   0.500000
-max    176.000000  129.000000    84.000000  158.000000   0.500000
-
-
-
-
-
-&#39;\n레몬의 표준편차가 더크다\n-&gt; 레몬의 판매량의 격차가 더크다\n&#39;
-</code></pre>
-<h3 id="범주형-데이터-빈도수-구하기"><a href="#범주형-데이터-빈도수-구하기" class="headerlink" title="범주형 데이터 빈도수 구하기"></a>범주형 데이터 빈도수 구하기</h3><ul>
-<li>데이터[‘범주’].value_counts()<ul>
-<li>series에서 사용</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Location&#x27;</span>].value_counts() <span class="comment"># </span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>Beach    17
-Park     15
-Name: Location, dtype: int64
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Price&#x27;</span>].value_counts()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0.25    15
-0.50    11
-0.35     6
-Name: Price, dtype: int64
-</code></pre>
-<h2 id="행과-열-다루기"><a href="#행과-열-다루기" class="headerlink" title="행과 열 다루기"></a>행과 열 다루기</h2><ul>
-<li><p>사칙연산이 가능하다</p>
-</li>
-<li><p>Sold(판매량) 컬럼(&#x3D;피처&#x3D;feature) 추가</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Sold&#x27;</span>] = <span class="number">0</span> <span class="comment"># Sold라는 피처에 0이라는 데이터를 삽입</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold
-0  7/1/2016     Park     97      67           70      90.0   0.25     0
-1  7/2/2016     Park     98      67           72      90.0   0.25     0
-2  7/3/2016     Park    110      77           71     104.0   0.25     0
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Sold&#x27;</span>] = lemonade[<span class="string">&#x27;Lemon&#x27;</span>] + lemonade[<span class="string">&#x27;Orange&#x27;</span>] <span class="comment">#Sold라는 피처에 Lemon+Orange 값 삽입</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold
-0  7/1/2016     Park     97      67           70      90.0   0.25   164
-1  7/2/2016     Park     98      67           72      90.0   0.25   165
-2  7/3/2016     Park    110      77           71     104.0   0.25   187
-</code></pre>
-<ul>
-<li>Revenue(매출) &#x3D; 단가 X 판매량</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Revenue&#x27;</span>] = lemonade[<span class="string">&#x27;Price&#x27;</span>] * lemonade[<span class="string">&#x27;Sold&#x27;</span>]</span><br><span class="line"><span class="comment">#print(lemonade.head(3))</span></span><br><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Revenue&#x27;</span>, <span class="string">&#x27;Price&#x27;</span>, <span class="string">&#x27;Sold&#x27;</span>]].head()) <span class="comment"># 원하는 피처만 볼때</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>   Revenue  Price  Sold
-0    41.00   0.25   164
-1    41.25   0.25   165
-2    46.75   0.25   187
-3    58.25   0.25   233
-4    69.25   0.25   277
-</code></pre>
-<ul>
-<li>drop()함수 사용해서 열 또는 행 제거 <ul>
-<li>axis &#x3D; 1 -&gt; 열을 제거</li>
-<li>axis &#x3D; 0 -&gt; 행을 제거<ul>
-<li>리스트로 여러 열과 행을 제거 가능<br><img src="/images/day0629/axis.png" alt="axis"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 열 제거</span></span><br><span class="line">col_drop = lemonade.drop(<span class="string">&#x27;Sold&#x27;</span>, axis=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(col_drop.head())</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Revenue
-0  7/1/2016     Park     97      67           70      90.0   0.25    41.00
-1  7/2/2016     Park     98      67           72      90.0   0.25    41.25
-2  7/3/2016     Park    110      77           71     104.0   0.25    46.75
-3  7/4/2016    Beach    134      99           76      98.0   0.25    58.25
-4  7/5/2016    Beach    159     118           78     135.0   0.25    69.25
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># index 제거</span></span><br><span class="line"><span class="comment"># index에 포함 된 모든 값 제거</span></span><br><span class="line">row_drop = lemonade.drop(<span class="number">2</span>, axis = <span class="number">0</span>) </span><br><span class="line"><span class="built_in">print</span>(row_drop.head())</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-0  7/1/2016     Park     97      67           70      90.0   0.25   164   
-1  7/2/2016     Park     98      67           72      90.0   0.25   165   
-3  7/4/2016    Beach    134      99           76      98.0   0.25   233   
-4  7/5/2016    Beach    159     118           78     135.0   0.25   277   
-5  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-
-   Revenue  
-0    41.00  
-1    41.25  
-3    58.25  
-4    69.25  
-5    43.00  
-</code></pre>
-<h3 id="데이터-인덱싱"><a href="#데이터-인덱싱" class="headerlink" title="데이터 인덱싱"></a>데이터 인덱싱</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[<span class="number">4</span>:<span class="number">7</span>]) </span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-4  7/5/2016    Beach    159     118           78     135.0   0.25   277   
-5  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-6  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-
-   Revenue  
-4    69.25  
-5    43.00  
-6    43.00  
-</code></pre>
-<h3 id="특정-값만-추출-filter"><a href="#특정-값만-추출-filter" class="headerlink" title="특정 값만 추출(filter)"></a>특정 값만 추출(filter)</h3><ul>
-<li>데이터[데이터[‘컬럼’] &#x3D;&#x3D; 특정값]<ul>
-<li>데이터[(조건식1) &amp;&#x2F;| (조건식2)]</li>
-</ul>
-</li>
-<li>조건식을 실행했을 때 <strong>True</strong>값만 추출<ul>
-<li>조건식을 짤때 결괏값이 True,False가 나올수 있도록 정의</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&#x27;Beach&#x27;</span>)</span><br><span class="line"><span class="comment"># Location이 Beach이면 True, Beach가 아니면 False </span></span><br></pre></td></tr></table></figure>
-
-<pre><code>0     False
-1     False
-2     False
-3      True
-4      True
-5      True
-6      True
-7      True
-8      True
-9      True
-10     True
-11     True
-12     True
-13     True
-14     True
-15     True
-16     True
-17     True
-18    False
-19    False
-20    False
-21    False
-22    False
-23    False
-24    False
-25    False
-26    False
-27    False
-28    False
-29    False
-30     True
-31     True
-Name: Location, dtype: bool
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&#x27;Beach&#x27;</span>]) </span><br><span class="line"><span class="comment"># True가 출력된 경우의 index만 추출</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-3    7/4/2016    Beach    134      99           76      98.0   0.25   233   
-4    7/5/2016    Beach    159     118           78     135.0   0.25   277   
-5    7/6/2016    Beach    103      69           82      90.0   0.25   172   
-6    7/6/2016    Beach    103      69           82      90.0   0.25   172   
-7    7/7/2016    Beach    143     101           81     135.0   0.25   244   
-8         NaN    Beach    123      86           82     113.0   0.25   209   
-9    7/9/2016    Beach    134      95           80     126.0   0.25   229   
-10  7/10/2016    Beach    140      98           82     131.0   0.25   238   
-11  7/11/2016    Beach    162     120           83     135.0   0.25   282   
-12  7/12/2016    Beach    130      95           84      99.0   0.25   225   
-13  7/13/2016    Beach    109      75           77      99.0   0.25   184   
-14  7/14/2016    Beach    122      85           78     113.0   0.25   207   
-15  7/15/2016    Beach     98      62           75     108.0   0.50   160   
-16  7/16/2016    Beach     81      50           74      90.0   0.50   131   
-17  7/17/2016    Beach    115      76           77     126.0   0.50   191   
-30  7/30/2016    Beach     88      57           82      81.0   0.35   145   
-31  7/31/2016    Beach     76      47           82      68.0   0.35   123   
-
-    Revenue  
-3     58.25  
-4     69.25  
-5     43.00  
-6     43.00  
-7     61.00  
-8     52.25  
-9     57.25  
-10    59.50  
-11    70.50  
-12    56.25  
-13    46.00  
-14    51.75  
-15    80.00  
-16    65.50  
-17    95.50  
-30    50.75  
-31    43.05  
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[(lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&#x27;Beach&#x27;</span>) &amp; (lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;= <span class="number">80</span>)])  </span><br><span class="line"><span class="comment"># Location이 Beach이면서 Temperature &gt;= 80이 True인 경우만 추출</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-5    7/6/2016    Beach    103      69           82      90.0   0.25   172   
-6    7/6/2016    Beach    103      69           82      90.0   0.25   172   
-7    7/7/2016    Beach    143     101           81     135.0   0.25   244   
-8         NaN    Beach    123      86           82     113.0   0.25   209   
-9    7/9/2016    Beach    134      95           80     126.0   0.25   229   
-10  7/10/2016    Beach    140      98           82     131.0   0.25   238   
-11  7/11/2016    Beach    162     120           83     135.0   0.25   282   
-12  7/12/2016    Beach    130      95           84      99.0   0.25   225   
-30  7/30/2016    Beach     88      57           82      81.0   0.35   145   
-31  7/31/2016    Beach     76      47           82      68.0   0.35   123   
-
-    Revenue  
-5     43.00  
-6     43.00  
-7     61.00  
-8     52.25  
-9     57.25  
-10    59.50  
-11    70.50  
-12    56.25  
-30    50.75  
-31    43.05  
-</code></pre>
-<h3 id="iloc-와-loc"><a href="#iloc-와-loc" class="headerlink" title="iloc 와 loc"></a>iloc 와 loc</h3><ul>
-<li>iloc &#x3D; index 만들어감(숫자)<ul>
-<li>filtering을 할때 loc보다 복잡하다</li>
-</ul>
-</li>
-<li>loc &#x3D; lable이 들어감(숫자, 문자 전부 들어감)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.loc[lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&#x27;Beach&#x27;</span>,[<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Sold&#x27;</span>]]) </span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date  Sold
-3    7/4/2016   233
-4    7/5/2016   277
-5    7/6/2016   172
-6    7/6/2016   172
-7    7/7/2016   244
-8         NaN   209
-9    7/9/2016   229
-10  7/10/2016   238
-11  7/11/2016   282
-12  7/12/2016   225
-13  7/13/2016   184
-14  7/14/2016   207
-15  7/15/2016   160
-16  7/16/2016   131
-17  7/17/2016   191
-30  7/30/2016   145
-31  7/31/2016   123
-</code></pre>
-<ul>
-<li>문법상의 차이</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iloc</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.iloc[<span class="number">0</span>:<span class="number">3</span>,<span class="number">0</span>:<span class="number">2</span>])</span><br><span class="line"><span class="comment"># []안에 index만 들어감</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location
-0  7/1/2016     Park
-1  7/2/2016     Park
-2  7/3/2016     Park
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># loc</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.loc[<span class="number">0</span>:<span class="number">2</span>,[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Location&#x27;</span>]])</span><br><span class="line"><span class="comment"># 이때 0:2는 index가 아니라 문자 자체 0, 1, 2 이다</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location
-0  7/1/2016     Park
-1  7/2/2016     Park
-2  7/3/2016     Park
-</code></pre>
-<h3 id="데이터-정렬"><a href="#데이터-정렬" class="headerlink" title="데이터 정렬"></a>데이터 정렬</h3><ul>
-<li>sort_values()</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Temperature&#x27;</span>, <span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Revenue&#x27;</span>]).head(<span class="number">5</span>))</span><br><span class="line"><span class="comment"># Revenue를 기준으로 Date,Temperature,Revenue를 오름차순 정렬</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date  Temperature  Revenue
-0    7/1/2016           70    41.00
-1    7/2/2016           72    41.25
-6    7/6/2016           82    43.00
-5    7/6/2016           82    43.00
-31  7/31/2016           82    43.05
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Temperature&#x27;</span>, <span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>]).head(<span class="number">5</span>))</span><br><span class="line"><span class="comment"># Temperature를 기준으로 오른차순 정렬을 한 후 Revenue순으로 오름차순 정렬</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date  Temperature  Revenue
-0    7/1/2016           70    41.00
-20  7/20/2016           70    56.50
-2    7/3/2016           71    46.75
-1    7/2/2016           72    41.25
-16  7/16/2016           74    65.50
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Temperature&#x27;</span>, <span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>], ascending = [<span class="literal">True</span>,<span class="literal">False</span>]).head(<span class="number">5</span>))</span><br><span class="line"><span class="comment"># Temperature를 기준으로 오른차순 정렬을 한 후 Revenue순으로 내림차순 정렬</span></span><br><span class="line"><span class="comment"># (ascending = True)이 default값이고 True가 오름차순, False가 내림차순</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date  Temperature  Revenue
-20  7/20/2016           70    56.50
-0    7/1/2016           70    41.00
-2    7/3/2016           71    46.75
-1    7/2/2016           72    41.25
-16  7/16/2016           74    65.50
-</code></pre>
-<h3 id="Group-by"><a href="#Group-by" class="headerlink" title="Group by"></a>Group by</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df=lemonade.groupby(by=<span class="string">&#x27;Location&#x27;</span>).count()</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(df))</span><br><span class="line"><span class="comment">#index의 type이 문자</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>          Date  Lemon  Orange  Temperature  Leaflets  Price  Sold  Revenue
-Location                                                                  
-Beach       16     17      17           17        17     17    17       17
-Park        15     15      15           15        14     15    15       15
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Lemon&#x27;</span>]]) <span class="comment"># df에서 Date와 Lemon만 추출</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>          Date  Lemon
-Location             
-Beach       16     17
-Park        15     15
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">0</span>:<span class="number">1</span>,<span class="number">0</span>:<span class="number">2</span>]) <span class="comment"># df에서 0번째 행과 0~1,번째 열만 추출</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>          Date  Lemon
-Location             
-Beach       16     17
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[<span class="string">&#x27;Park&#x27;</span>,[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Lemon&#x27;</span>]])</span><br></pre></td></tr></table></figure>
-
-<pre><code>Date     15
-Lemon    15
-Name: Park, dtype: int64
-</code></pre>
-<ul>
-<li>간단한 피벗 테이블 만들기<ul>
-<li>DateFrame.groupby(분석대상)[분석주체].agg(분석내용)</li>
-<li>(분석대상)을 [분석주체]를 기준으로 (분석내용)을 한다</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[<span class="string">&#x27;Revenue&#x27;</span>].agg([<span class="built_in">max</span>,<span class="built_in">min</span>,<span class="built_in">sum</span>,np.mean]))</span><br><span class="line"><span class="comment"># Revenue에 대해 Location의 데이터를 filter 및 가공</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>            max   min     sum       mean
-Location                                
-Beach      95.5  43.0  1002.8  58.988235
-Park      134.5  41.0  1178.2  78.546667
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[[<span class="string">&#x27;Revenue&#x27;</span>,<span class="string">&#x27;Sold&#x27;</span>]].agg([<span class="built_in">max</span>,<span class="built_in">min</span>,<span class="built_in">sum</span>,np.mean]))</span><br><span class="line"><span class="comment"># Revenue와 Sold에 대해 Location의 데이터를 filter 및 가공</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>         Revenue                          Sold                       
-             max   min     sum       mean  max  min   sum        mean
-Location                                                             
-Beach       95.5  43.0  1002.8  58.988235  282  123  3422  201.294118
-Park       134.5  41.0  1178.2  78.546667  305  113  2855  190.333333
-</code></pre>
-<h1 id="머신러닝"><a href="#머신러닝" class="headerlink" title="머신러닝"></a>머신러닝</h1><h2 id="파이썬-주요-라이브"><a href="#파이썬-주요-라이브" class="headerlink" title="파이썬 주요 라이브"></a>파이썬 주요 라이브</h2><ul>
-<li>Machine Learning<ul>
-<li>정형데이터</li>
-<li>사이킥런(Scikit-Learn)</li>
-</ul>
-</li>
-<li>Deep Learning<ul>
-<li>비정형데이터</li>
-<li>Tensorflow(구글)<ul>
-<li>실제 상용서비스</li>
-</ul>
-</li>
-<li>Pythrch(페북) <ul>
-<li>연구파트</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="생선분류"><a href="#생선분류" class="headerlink" title="생선분류"></a>생선분류</h2><ul>
-<li>도미, 곤들매기, 농어, 강꼬치고기, 로치, 빙어, 송어</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 30cm &gt;= 도미</span></span><br><span class="line">fish_length = <span class="number">31</span></span><br><span class="line"><span class="keyword">if</span> fish_length &gt;= <span class="number">30</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;도미&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>도미
-</code></pre>
-<ul>
-<li>도미데이터</li>
-</ul>
-<h3 id="데이터-수집"><a href="#데이터-수집" class="headerlink" title="데이터 수집"></a>데이터 수집</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 도미의 길이</span></span><br><span class="line">bream_length = [<span class="number">25.4</span>, <span class="number">26.3</span>, <span class="number">26.5</span>, <span class="number">29.0</span>, <span class="number">29.0</span>, <span class="number">29.7</span>, <span class="number">29.7</span>, <span class="number">30.0</span>, <span class="number">30.0</span>, <span class="number">30.7</span>, <span class="number">31.0</span>, <span class="number">31.0</span>, <span class="number">31.5</span>, <span class="number">32.0</span>, <span class="number">32.0</span>, <span class="number">32.0</span>, <span class="number">33.0</span>, <span class="number">33.0</span>, <span class="number">33.5</span>, <span class="number">33.5</span>, <span class="number">34.0</span>, <span class="number">34.0</span>, <span class="number">34.5</span>, <span class="number">35.0</span>, <span class="number">35.0</span>, <span class="number">35.0</span>, <span class="number">35.0</span>, <span class="number">36.0</span>, <span class="number">36.0</span>, <span class="number">37.0</span>, <span class="number">38.5</span>, <span class="number">38.5</span>, <span class="number">39.5</span>, <span class="number">41.0</span>, <span class="number">41.0</span>]</span><br><span class="line"><span class="comment"># 도미의 무게</span></span><br><span class="line">bream_weight = [<span class="number">242.0</span>, <span class="number">290.0</span>, <span class="number">340.0</span>, <span class="number">363.0</span>, <span class="number">430.0</span>, <span class="number">450.0</span>, <span class="number">500.0</span>, <span class="number">390.0</span>, <span class="number">450.0</span>, <span class="number">500.0</span>, <span class="number">475.0</span>, <span class="number">500.0</span>, <span class="number">500.0</span>, <span class="number">340.0</span>, <span class="number">600.0</span>, <span class="number">600.0</span>, <span class="number">700.0</span>, <span class="number">700.0</span>, <span class="number">610.0</span>, <span class="number">650.0</span>, <span class="number">575.0</span>, <span class="number">685.0</span>, <span class="number">620.0</span>, <span class="number">680.0</span>, <span class="number">700.0</span>, <span class="number">725.0</span>, <span class="number">720.0</span>, <span class="number">714.0</span>, <span class="number">850.0</span>, <span class="number">1000.0</span>, <span class="number">920.0</span>, <span class="number">955.0</span>, <span class="number">925.0</span>, <span class="number">975.0</span>, <span class="number">950.0</span>]</span><br></pre></td></tr></table></figure>
-
-<h3 id="데이터-가공"><a href="#데이터-가공" class="headerlink" title="데이터 가공"></a>데이터 가공</h3><h3 id="데이터-시각화"><a href="#데이터-시각화" class="headerlink" title="데이터 시각화"></a>데이터 시각화</h3><ul>
-<li>여러 인사이트 확인 위해 시각화, 통계 수치 계산</li>
-<li>탐색적 자료 분석(EDA : Exploratory Data Analysis)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.scatter(bream_length, bream_weight)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/day0629/output_56_0.png" alt="png"></p>
-<ul>
-<li>파이썬 시각화는 객체지향으로 한다.<ul>
-<li>좀더 이쁘게 그리기위해</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(bream_length, bream_weight)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/day0629/output_58_0.png" alt="png"></p>
-<ul>
-<li>빙어 데이터 준비</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">smelt_length = [<span class="number">9.8</span>, <span class="number">10.5</span>, <span class="number">10.6</span>, <span class="number">11.0</span>, <span class="number">11.2</span>, <span class="number">11.3</span>, <span class="number">11.8</span>, <span class="number">11.8</span>, <span class="number">12.0</span>, <span class="number">12.2</span>, <span class="number">12.4</span>, <span class="number">13.0</span>, <span class="number">14.3</span>, <span class="number">15.0</span>]</span><br><span class="line">smelt_weight = [<span class="number">6.7</span>, <span class="number">7.5</span>, <span class="number">7.0</span>, <span class="number">9.7</span>, <span class="number">9.8</span>, <span class="number">8.7</span>, <span class="number">10.0</span>, <span class="number">9.9</span>, <span class="number">9.8</span>, <span class="number">12.2</span>, <span class="number">13.4</span>, <span class="number">12.2</span>, <span class="number">19.7</span>, <span class="number">19.9</span>]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(bream_length, bream_weight)</span><br><span class="line">ax.scatter(smelt_length, smelt_weight)</span><br><span class="line">ax.set_xlabel(<span class="string">&quot;length&quot;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&quot;weight&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/day0629/output_61_0.png" alt="png"></p>
-<ul>
-<li>두개의 리스트 합치기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">length = bream_length + smelt_length</span><br><span class="line">weight = bream_weight + smelt_weight</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>2차원 리스트로 만든다</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fish_data = [[l, w] <span class="keyword">for</span> l,w <span class="keyword">in</span> <span class="built_in">zip</span>(length,weight)]</span><br><span class="line">fish_data[<span class="number">0</span>:<span class="number">5</span>] <span class="comment"># 2차원 리스트</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[[25.4, 242.0], [26.3, 290.0], [26.5, 340.0], [29.0, 363.0], [29.0, 430.0]]
-</code></pre>
-<ul>
-<li>라벨링 &#x3D; 지도학습</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fish_target = [<span class="number">1</span>] * <span class="number">35</span> + [<span class="number">0</span>] * <span class="number">14</span></span><br><span class="line"><span class="built_in">print</span>(fish_target)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-</code></pre>
-<h4 id="모델링"><a href="#모델링" class="headerlink" title="모델링"></a>모델링</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="comment"># 클래스의 인스턴스화</span></span><br><span class="line">kn = KNeighborsClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모형 학습</span></span><br><span class="line">kn.fit(fish_data, fish_target)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>KNeighborsClassifier()
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예측 정확도</span></span><br><span class="line">kn.score(fish_data, fish_target)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>1.0
-</code></pre>
-<ul>
-<li>실제 예측 해보기 <ul>
-<li>길이 : 30, 몸무게 : 600</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ac_length = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;길이입력&quot;</span>))</span><br><span class="line">ac_weight = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;무게입력&quot;</span>))</span><br><span class="line"></span><br><span class="line">preds = <span class="built_in">int</span>(kn.predict([[ac_length,ac_weight]]))</span><br><span class="line"><span class="comment">#print(preds)</span></span><br><span class="line"><span class="keyword">if</span> preds ==<span class="number">1</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;도미&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;빙어&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>길이입력500
-무게입력600
-도미
-</code></pre>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="JungBear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JungBear</p><p class="is-size-6 is-block">Blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>In Your Heart</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">20</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/JungBear" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/JungBear"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">14</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Assignment/"><span class="level-start"><span class="level-item">Assignment</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/R/"><span class="level-start"><span class="level-item">R</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/R/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-08T00:00:00.000Z">2022-07-08</time></p><p class="title"><a href="/2022/07/08/day0708/">Day-16 Kaggle Bike Sharing </a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-07T00:00:00.000Z">2022-07-07</time></p><p class="title"><a href="/2022/07/07/day0707/">Day-15 Kaggle House </a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706/">Day-14 Data Analysis Process &amp; Review</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T06:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/0705_PyCaret_Sample/">Day-13 PyCaret</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705/">Day-13 Random Forest &amp; Gradient Boosting Regression Tree</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">JungBear&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 JungBear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="JungBear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JungBear</p><p class="is-size-6 is-block">Blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>In Your Heart</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">21</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/JungBear" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/JungBear"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">15</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Assignment/"><span class="level-start"><span class="level-item">Assignment</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Kaggle/"><span class="level-start"><span class="level-item">Kaggle</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/R/"><span class="level-start"><span class="level-item">R</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/R/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-11T00:00:00.000Z">2022-07-11</time></p><p class="title"><a href="/2022/07/11/day0711/">Day-17 Kaggle Competion</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Kaggle/">Kaggle</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-08T00:00:00.000Z">2022-07-08</time></p><p class="title"><a href="/2022/07/08/day0708/">Day-16 Kaggle Bike Sharing </a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Kaggle/">Kaggle</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-07T00:00:00.000Z">2022-07-07</time></p><p class="title"><a href="/2022/07/07/day0707/">Day-15 Kaggle House </a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Kaggle/">Kaggle</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706/">Day-14 Data Analysis Process &amp; Review</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T06:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/0705_PyCaret_Sample/">Day-13 PyCaret</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">JungBear&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 JungBear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
