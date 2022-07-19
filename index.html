@@ -12,7 +12,7 @@
 <li>컨테이너 데이터베이스로 생성 체크해제</li>
 </ul>
 <p><img src="/images/day07/day0719/Untitled%204.png" alt="Untitled"></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-19T00:00:00.000Z" title="2022. 7. 19. 오전 9:00:00">2022-07-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-19T07:41:44.920Z" title="2022. 7. 19. 오후 4:41:44">2022-07-19</time></span><span class="level-item"><a class="link-muted" href="/categories/Oracle/">Oracle</a><span> / </span><a class="link-muted" href="/categories/Oracle/lecture/">lecture</a></span><span class="level-item">3 minutes read (About 440 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/19/day0719_oracle/">Day-19 Oracle Basic</a></h1><div class="content"><h1 id="day0719"><a href="#day0719" class="headerlink" title="day0719"></a>day0719</h1><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-19T00:00:00.000Z" title="2022. 7. 19. 오전 9:00:00">2022-07-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-19T07:55:33.012Z" title="2022. 7. 19. 오후 4:55:33">2022-07-19</time></span><span class="level-item"><a class="link-muted" href="/categories/Oracle/">Oracle</a><span> / </span><a class="link-muted" href="/categories/Oracle/lecture/">lecture</a></span><span class="level-item">3 minutes read (About 442 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/19/day0719_oracle/">Day-19 Oracle Basic</a></h1><div class="content"><h1 id="day0719"><a href="#day0719" class="headerlink" title="day0719"></a>day0719</h1><ul>
 <li>SQL vs PL&#x2F;SQL</li>
 <li>SQL (분석가90% + 개발자 30%)<ul>
 <li>프로그래밍 성격이 얕다</li>
@@ -21,18 +21,18 @@
 <li>PL&#x2F;SQL (분석가10% + 개발자70% +DBA)</li>
 <li>DB분석</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT 컬럼명</span><br><span class="line">FROM 테이블명</span><br><span class="line">WHERE 조건식</span><br><span class="line">ORDER BY 정렬기준</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 컬럼명</span><br><span class="line"><span class="keyword">FROM</span> 테이블명</span><br><span class="line"><span class="keyword">WHERE</span> 조건식</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 정렬기준</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>사용자 설정 제약조건 확인</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT constraint_name</span><br><span class="line">       , constraint_type</span><br><span class="line">       , table_name</span><br><span class="line">       , search_condition</span><br><span class="line">FROM user_constraints</span><br><span class="line">WHERE table_name = <span class="string">&#x27;EX2_6&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> constraint_name</span><br><span class="line">       , constraint_type</span><br><span class="line">       , table_name</span><br><span class="line">       , search_condition</span><br><span class="line"><span class="keyword">FROM</span> user_constraints</span><br><span class="line"><span class="keyword">WHERE</span> table_name <span class="operator">=</span> <span class="string">&#x27;EX2_6&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/day07/day0719/oracle1.png" alt="Untitled"></p>
 <ul>
 <li>테이블 정보 확인</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC 컬럼명;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESC</span> 컬럼명;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/day07/day0719/oracle2.png" alt="Untitled"></p>
 <h3 id="제약조건"><a href="#제약조건" class="headerlink" title="제약조건"></a>제약조건</h3><ul>
@@ -61,48 +61,48 @@
 <h3 id="테이블-변경"><a href="#테이블-변경" class="headerlink" title="테이블 변경"></a>테이블 변경</h3><ul>
 <li>컬럼명 변경</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 테이블명 RENAME COLUMN 바꾸고싶은 컬럼명 TO 변경후 컬럼명;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 RENAME <span class="keyword">COLUMN</span> 바꾸고싶은 컬럼명 <span class="keyword">TO</span> 변경후 컬럼명;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>타입변경</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 테이블명 MODIFY 컬럼명 타입;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 MODIFY 컬럼명 타입;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>컬럼 추가</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 테이블명 ADD 컬럼명 타입;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> 컬럼명 타입;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>컬럼 삭제</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 테이블명 DROP COLUMN COL3;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> 컬럼명;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>제약조건 추가하기</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 테이블명 ADD CONSTRAINTS 제약조건이름 PRIMARY KEY (컬럼명);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span>S 제약조건이름 <span class="keyword">PRIMARY</span> KEY (컬럼명);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>제약조건 삭제</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 테이블 명 DROP CONSTRAINTS 제약조건이름;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블 명 <span class="keyword">DROP</span> CONSTRAINTS 제약조건이름;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>테이블 복사</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 테이블명 AS</span><br><span class="line">SELECT * FROM 복사당할 테이블명;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> 복사당할 테이블명;</span><br></pre></td></tr></table></figure>
 
 <h3 id="뷰"><a href="#뷰" class="headerlink" title="뷰"></a>뷰</h3><ul>
 <li>테이블이나 또다른 뷰를 참조하는 객체</li>
 <li>뷰생성</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE OR REPLACE VIEW 테이블명 AS</span><br><span class="line">SELECT 컬럼명</span><br><span class="line">FROM 테이블명</span><br><span class="line">WHERE 조건식</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">VIEW</span> 테이블명 <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> 컬럼명</span><br><span class="line"><span class="keyword">FROM</span> 테이블명</span><br><span class="line"><span class="keyword">WHERE</span> 조건식</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>뷰 삭제</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW 테이블명</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-18T00:00:00.000Z" title="2022. 7. 18. 오전 9:00:00">2022-07-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-18T08:07:09.298Z" title="2022. 7. 18. 오후 5:07:09">2022-07-18</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">16 minutes read (About 2348 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/18/day0718/">Day-18 MLFlow in MLOps</a></h1><div class="content"><h1 id="MLOps"><a href="#MLOps" class="headerlink" title="MLOps"></a>MLOps</h1><ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> 테이블명</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-18T00:00:00.000Z" title="2022. 7. 18. 오전 9:00:00">2022-07-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-18T08:07:09.298Z" title="2022. 7. 18. 오후 5:07:09">2022-07-18</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">16 minutes read (About 2348 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/18/day0718/">Day-18 MLFlow in MLOps</a></h1><div class="content"><h1 id="MLOps"><a href="#MLOps" class="headerlink" title="MLOps"></a>MLOps</h1><ul>
 <li>ML모델을 .pkl을 사용해서 저장하다가 온라인에 저장시킬수 있다.</li>
 <li></li>
 </ul>
