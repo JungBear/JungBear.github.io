@@ -1,5 +1,299 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>JungBear&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="JungBear&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="JungBear&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="JungBear&#039;s Blog"><meta property="og:url" content="https://jungbear.github.io/"><meta property="og:site_name" content="JungBear&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://jungbear.github.io/img/og_image.png"><meta property="article:author" content="JungBear"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://JungBear.github.io"},"headline":"JungBear's Blog","image":["https://jungbear.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JungBear"},"publisher":{"@type":"Organization","name":"JungBear's Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">JungBear&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-01T00:00:00.000Z" title="2022. 7. 1. 오전 9:00:00">2022-07-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-01T03:08:32.180Z" title="2022. 7. 1. 오후 12:08:32">2022-07-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">4 minutes read (About 608 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/01/day0701/">Day-11 Machine Learning</a></h1><div class="content"><h1 id="K최근접이웃회귀모델"><a href="#K최근접이웃회귀모델" class="headerlink" title="K최근접이웃회귀모델"></a>K최근접이웃회귀모델</h1><h2 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">perch_length = np.array(</span><br><span class="line">    [<span class="number">8.4</span>, <span class="number">13.7</span>, <span class="number">15.0</span>, <span class="number">16.2</span>, <span class="number">17.4</span>, <span class="number">18.0</span>, <span class="number">18.7</span>, <span class="number">19.0</span>, <span class="number">19.6</span>, <span class="number">20.0</span>, </span><br><span class="line">     <span class="number">21.0</span>, <span class="number">21.0</span>, <span class="number">21.0</span>, <span class="number">21.3</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.5</span>, </span><br><span class="line">     <span class="number">22.5</span>, <span class="number">22.7</span>, <span class="number">23.0</span>, <span class="number">23.5</span>, <span class="number">24.0</span>, <span class="number">24.0</span>, <span class="number">24.6</span>, <span class="number">25.0</span>, <span class="number">25.6</span>, <span class="number">26.5</span>, </span><br><span class="line">     <span class="number">27.3</span>, <span class="number">27.5</span>, <span class="number">27.5</span>, <span class="number">27.5</span>, <span class="number">28.0</span>, <span class="number">28.7</span>, <span class="number">30.0</span>, <span class="number">32.8</span>, <span class="number">34.5</span>, <span class="number">35.0</span>, </span><br><span class="line">     <span class="number">36.5</span>, <span class="number">36.0</span>, <span class="number">37.0</span>, <span class="number">37.0</span>, <span class="number">39.0</span>, <span class="number">39.0</span>, <span class="number">39.0</span>, <span class="number">40.0</span>, <span class="number">40.0</span>, <span class="number">40.0</span>, </span><br><span class="line">     <span class="number">40.0</span>, <span class="number">42.0</span>, <span class="number">43.0</span>, <span class="number">43.0</span>, <span class="number">43.5</span>, <span class="number">44.0</span>]</span><br><span class="line">     )</span><br><span class="line">perch_weight = np.array(</span><br><span class="line">    [<span class="number">5.9</span>, <span class="number">32.0</span>, <span class="number">40.0</span>, <span class="number">51.5</span>, <span class="number">70.0</span>, <span class="number">100.0</span>, <span class="number">78.0</span>, <span class="number">80.0</span>, <span class="number">85.0</span>, <span class="number">85.0</span>, </span><br><span class="line">     <span class="number">110.0</span>, <span class="number">115.0</span>, <span class="number">125.0</span>, <span class="number">130.0</span>, <span class="number">120.0</span>, <span class="number">120.0</span>, <span class="number">130.0</span>, <span class="number">135.0</span>, <span class="number">110.0</span>, </span><br><span class="line">     <span class="number">130.0</span>, <span class="number">150.0</span>, <span class="number">145.0</span>, <span class="number">150.0</span>, <span class="number">170.0</span>, <span class="number">225.0</span>, <span class="number">145.0</span>, <span class="number">188.0</span>, <span class="number">180.0</span>, </span><br><span class="line">     <span class="number">197.0</span>, <span class="number">218.0</span>, <span class="number">300.0</span>, <span class="number">260.0</span>, <span class="number">265.0</span>, <span class="number">250.0</span>, <span class="number">250.0</span>, <span class="number">300.0</span>, <span class="number">320.0</span>, </span><br><span class="line">     <span class="number">514.0</span>, <span class="number">556.0</span>, <span class="number">840.0</span>, <span class="number">685.0</span>, <span class="number">700.0</span>, <span class="number">700.0</span>, <span class="number">690.0</span>, <span class="number">900.0</span>, <span class="number">650.0</span>, </span><br><span class="line">     <span class="number">820.0</span>, <span class="number">850.0</span>, <span class="number">900.0</span>, <span class="number">1015.0</span>, <span class="number">820.0</span>, <span class="number">1100.0</span>, <span class="number">1000.0</span>, <span class="number">1100.0</span>, </span><br><span class="line">     <span class="number">1000.0</span>, <span class="number">1000.0</span>]</span><br><span class="line">     )</span><br><span class="line"><span class="built_in">print</span>(perch_length.shape, perch_weight.shape)</span><br></pre></td></tr></table></figure>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>JungBear&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="JungBear&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="JungBear&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="JungBear&#039;s Blog"><meta property="og:url" content="https://jungbear.github.io/"><meta property="og:site_name" content="JungBear&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://jungbear.github.io/img/og_image.png"><meta property="article:author" content="JungBear"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://JungBear.github.io"},"headline":"JungBear's Blog","image":["https://jungbear.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JungBear"},"publisher":{"@type":"Organization","name":"JungBear's Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">JungBear&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-04T00:00:00.000Z" title="2022. 7. 4. 오전 9:00:00">2022-07-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-05T01:42:06.585Z" title="2022. 7. 5. 오전 10:42:06">2022-07-05</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">12 minutes read (About 1785 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/04/day0704/">Day-12 Stochastic Grandient Descent &amp; Decision Tree</a></h1><div class="content"><h2 id="확률적-경사-하강법"><a href="#확률적-경사-하강법" class="headerlink" title="확률적 경사 하강법"></a>확률적 경사 하강법</h2><ul>
+<li>점진적 학습 (step, 보폭)</li>
+<li>학습률</li>
+<li>XGBoost, LightGBM, 딥러닝(이미지 분류, 자연어 처리, 옵티마이저)</li>
+</ul>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><ul>
+<li>신경망 이미지 데이터, 자연어</li>
+<li>자율주행 하루 데이터 1TB –&gt; 학습</li>
+<li>한꺼번에 다 모델을 학습 어려움<ul>
+<li>샘플링, 배치, 에포크, 오차(&#x3D;손실&#x3D;loss)가 가장 작은 지점을 찾아야 함.</li>
+</ul>
+</li>
+<li>결론적으로, 확률적 경사 하강법</li>
+</ul>
+<h3 id="손실함수"><a href="#손실함수" class="headerlink" title="손실함수"></a>손실함수</h3><ul>
+<li>로지스틱 손실 함수</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line">fish = pd.read_csv(<span class="string">&quot;https://bit.ly/fish_csv_data&quot;</span>)</span><br><span class="line">fish.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 159 entries, 0 to 158
+Data columns (total 6 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   Species   159 non-null    object 
+ 1   Weight    159 non-null    float64
+ 2   Length    159 non-null    float64
+ 3   Diagonal  159 non-null    float64
+ 4   Height    159 non-null    float64
+ 5   Width     159 non-null    float64
+dtypes: float64(5), object(1)
+memory usage: 7.6+ KB
+</code></pre>
+<ul>
+<li>입력 데이터와 타깃 데이터 분리</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fish_input = fish[[<span class="string">&#x27;Weight&#x27;</span>, <span class="string">&#x27;Length&#x27;</span>, <span class="string">&#x27;Diagonal&#x27;</span>, <span class="string">&#x27;Height&#x27;</span>, <span class="string">&#x27;Width&#x27;</span>]].to_numpy()</span><br><span class="line">fish_target = fish[<span class="string">&#x27;Species&#x27;</span>].to_numpy()</span><br><span class="line"></span><br><span class="line">fish_input.shape, fish_target.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>((159, 5), (159,))
+</code></pre>
+<ul>
+<li>훈련 세트와 테스트 데이터 분리</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    <span class="comment"># input, target, 옵션... </span></span><br><span class="line">    fish_input, fish_target, random_state=<span class="number">42</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>훈련 세트와 테스트 세트의 특성 표준화<ul>
+<li>무게, 길이, 대각선 길이, 높이, 너비</li>
+</ul>
+</li>
+<li>표준화 처리 진행</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">ss = StandardScaler()</span><br><span class="line">ss.fit(train_input)</span><br><span class="line"></span><br><span class="line">train_scaled = ss.transform(train_input)</span><br><span class="line">test_scaled = ss.transform(test_input)</span><br><span class="line"></span><br><span class="line"><span class="comment"># train_scaled[:5]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="모델링"><a href="#모델링" class="headerlink" title="모델링"></a>모델링</h2><ul>
+<li>확률적 경사 하강법</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> SGDClassifier </span><br><span class="line">sc = SGDClassifier(loss = <span class="string">&#x27;log&#x27;</span>, max_iter = <span class="number">10</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">sc.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(sc.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(sc.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.773109243697479
+0.775
+
+
+/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_stochastic_gradient.py:700: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+  ConvergenceWarning,
+</code></pre>
+<ul>
+<li>partial_fit() 메서드 사용하면 추가 학습.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sc.partial_fit(train_scaled, train_target) </span><br><span class="line"><span class="built_in">print</span>(sc.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(sc.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.8151260504201681
+0.85
+</code></pre>
+<h2 id="에포크와-과대-x2F-과소적합"><a href="#에포크와-과대-x2F-과소적합" class="headerlink" title="에포크와 과대&#x2F;과소적합"></a>에포크와 과대&#x2F;과소적합</h2><ul>
+<li>에포크 숫자가 적으면 –&gt; 덜 학습</li>
+<li>early_stopping<ul>
+<li>에포크 숫자를 1000, 손실 10, 9, 8, , 3</li>
+<li>3에 도달한 시점이 150</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line">sc = SGDClassifier(loss=<span class="string">&#x27;log&#x27;</span>, random_state = <span class="number">42</span>)</span><br><span class="line">train_score = []</span><br><span class="line">test_score = []</span><br><span class="line"></span><br><span class="line">classes = np.unique(train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 300번 에포크 훈련을 반복</span></span><br><span class="line"><span class="comment"># 훈련 할 때마다, train_score, test_score 추가를 한다. </span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">300</span>):</span><br><span class="line">  sc.partial_fit(train_scaled, train_target, classes = classes)</span><br><span class="line">  train_score.append(sc.score(train_scaled, train_target))</span><br><span class="line">  test_score.append(sc.score(test_scaled, test_target)) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>시각화</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line">plt.plot(train_score)</span><br><span class="line">plt.plot(test_score)</span><br><span class="line">plt.legend([<span class="string">&quot;train&quot;</span>, <span class="string">&quot;test&quot;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day07/day0704/output_17_0.png" alt="png"></p>
+<h2 id="결정트리"><a href="#결정트리" class="headerlink" title="결정트리"></a>결정트리</h2><ul>
+<li>wine 데이터 가져오기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line">wine = pd.read_csv(<span class="string">&#x27;https://bit.ly/wine_csv_data&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(wine.head())</span><br></pre></td></tr></table></figure>
+
+<pre><code>   alcohol  sugar    pH  class
+0      9.4    1.9  3.51    0.0
+1      9.8    2.6  3.20    0.0
+2      9.8    2.3  3.26    0.0
+3      9.8    1.9  3.16    0.0
+4      9.4    1.9  3.51    0.0
+</code></pre>
+<ul>
+<li>데이터 가공하기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = wine[[<span class="string">&#x27;alcohol&#x27;</span>, <span class="string">&#x27;sugar&#x27;</span>, <span class="string">&#x27;pH&#x27;</span>]].to_numpy()</span><br><span class="line">target = wine[<span class="string">&#x27;class&#x27;</span>].to_numpy()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>훈련데이터 분리</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    data, target, test_size = <span class="number">0.2</span>, random_state=<span class="number">42</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">train_input.shape, test_input.shape, train_target.shape, test_target.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>((5197, 3), (1300, 3), (5197,), (1300,))
+</code></pre>
+<ul>
+<li>표준화 처리</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">ss = StandardScaler()</span><br><span class="line">ss.fit(train_input)</span><br><span class="line"></span><br><span class="line">train_scaled = ss.transform(train_input)</span><br><span class="line">test_scaled = ss.transform(test_input)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>모델 만들기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> plot_tree </span><br><span class="line"></span><br><span class="line"><span class="comment"># dt = DecisionTreeClassifier(criterion = &#x27;entropy&#x27;, max_depth = 8, random_state=42) 엔트로피</span></span><br><span class="line">dt = DecisionTreeClassifier(max_depth = <span class="number">8</span>, random_state=<span class="number">42</span>)</span><br><span class="line">dt.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(dt.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(dt.score(test_scaled, test_target))</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">7</span>))</span><br><span class="line">plot_tree(dt)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.9003271117952665
+0.8576923076923076
+</code></pre>
+<p><img src="/images/day07/day0704/output_27_1.png" alt="png"></p>
+<ul>
+<li>훈련 정확도는 99.6%</li>
+<li>테스트 정확도는 85.9%<br>–&gt; 과대적합이 일어남</li>
+</ul>
+<h3 id="노드"><a href="#노드" class="headerlink" title="노드"></a>노드</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">7</span>))</span><br><span class="line">plot_tree(dt,</span><br><span class="line">          max_depth = <span class="number">1</span>, <span class="comment"># 깊이 </span></span><br><span class="line">          filled=<span class="literal">True</span>,</span><br><span class="line">          feature_names = [<span class="string">&#x27;alcohol&#x27;</span>, <span class="string">&#x27;sugar&#x27;</span>, <span class="string">&#x27;pH&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day07/day0704/output_30_0.png" alt="png"></p>
+<h3 id="조건"><a href="#조건" class="headerlink" title="조건"></a>조건</h3><ul>
+<li>첫번째 조건은 조건들 중 가장 확실하게 분류되는 조건이 온다.</li>
+<li>지시 함수를 기반으로 조건식을 구한다.</li>
+</ul>
+<h3 id="명칭"><a href="#명칭" class="headerlink" title="명칭"></a>명칭</h3><ul>
+<li><p>맨위 &#x3D; 루트노드(뿌리노드)</p>
+</li>
+<li><p>중간 &#x3D; 노드</p>
+</li>
+<li><p>제일 마지막 &#x3D; 리프노드(말단노드)</p>
+</li>
+<li><p>깊이 &#x3D; 조건식 갯수</p>
+</li>
+<li><p>불순도 </p>
+<ul>
+<li>한 범주 안에서 서로 다른 데이터가 얼마나 섞여 있는지 나타냄</li>
+<li>비율이 5:5일때 : 불순도 최대, gini 불순도 수치 &#x3D; 0.5</li>
+<li>100% 분리 되었을때 :불순도 최소, gini 분순도 수치 &#x3D; 0</li>
+</ul>
+</li>
+<li><p>엔트로피(Entropy)</p>
+<ul>
+<li>불확실한 정도를 의미</li>
+<li>0 ~ 1<ul>
+<li>비율이 5:5일때 엔트로피 최대 &#x3D; 1</li>
+<li>100% 분리 되었을때 엔트로피 최소 &#x3D; 0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="특성-중요도"><a href="#특성-중요도" class="headerlink" title="특성 중요도"></a>특성 중요도</h3><ul>
+<li>어떤 특성이 결정 트리 모델에 영향을 주었는가</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(dt.feature_importances_)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0.17976778 0.65284899 0.16738324]
+</code></pre>
+<h3 id="검증-세트"><a href="#검증-세트" class="headerlink" title="검증 세트"></a>검증 세트</h3><ul>
+<li>훈련세트와 테스트세트</li>
+<li>훈련 : 교과서를 공부하는 것 훈련세트, 모의평가</li>
+<li>검증 : 강남대성 모의고사</li>
+<li>테스트 : 6월&#x2F;9월 모의고사</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line">wine = pd.read_csv(<span class="string">&#x27;https://bit.ly/wine_csv_data&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(wine.head())</span><br><span class="line"></span><br><span class="line">data = wine[[<span class="string">&#x27;alcohol&#x27;</span>, <span class="string">&#x27;sugar&#x27;</span>, <span class="string">&#x27;pH&#x27;</span>]].to_numpy()</span><br><span class="line">target = wine[<span class="string">&#x27;class&#x27;</span>].to_numpy()</span><br><span class="line"></span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    data, target, test_size = <span class="number">0.2</span>, random_state=<span class="number">42</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">train_input.shape, test_input.shape, train_target.shape, test_target.shape</span><br></pre></td></tr></table></figure>
+
+<pre><code>   alcohol  sugar    pH  class
+0      9.4    1.9  3.51    0.0
+1      9.8    2.6  3.20    0.0
+2      9.8    2.3  3.26    0.0
+3      9.8    1.9  3.16    0.0
+4      9.4    1.9  3.51    0.0
+
+
+
+
+
+((5197, 3), (1300, 3), (5197,), (1300,))
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 훈련 80</span></span><br><span class="line"><span class="comment"># 검증 20</span></span><br><span class="line"></span><br><span class="line">sub_input, val_input, sub_target, val_target = train_test_split(</span><br><span class="line">    train_input, train_target, test_size=<span class="number">0.2</span>, random_state = <span class="number">42</span>)</span><br><span class="line"><span class="built_in">print</span>(sub_input.shape, val_input.shape)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(4157, 3) (1040, 3)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line">dt = DecisionTreeClassifier(random_state=<span class="number">42</span>)</span><br><span class="line">dt.fit(sub_input, sub_target)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;훈련성과:&quot;</span>, dt.score(sub_input, sub_target))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;검증 성과:&quot;</span>, dt.score(val_input, val_target))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;마지막 최종:&quot;</span>, dt.score(test_input, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>훈련성과: 0.9971133028626413
+검증 성과: 0.864423076923077
+마지막 최종: 0.8569230769230769
+</code></pre>
+<ul>
+<li>검증과 최종의 확률이 비슷해야한다.</li>
+</ul>
+<h3 id="교차-검증"><a href="#교차-검증" class="headerlink" title="교차 검증"></a>교차 검증</h3><ul>
+<li>데이터 셋을 반복 분할</li>
+<li>샘플링이 편향적일 수 있음을 방지하기 위해</li>
+<li>모형을 안정적으로 만들어 준다</li>
+<li>과대 적합 방지</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"></span><br><span class="line">df = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터를 K폴드로 나눈다</span></span><br><span class="line">folds = KFold(n_splits=<span class="number">5</span>, shuffle = <span class="literal">True</span>)<span class="comment"># 교차검증을 몇번할꺼냐</span></span><br><span class="line"><span class="keyword">for</span> train_idx, valid_idx <span class="keyword">in</span> folds.split(df):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;훈련데이터 :<span class="subst">&#123;df[train_idx]&#125;</span>, 검증데이터 : <span class="subst">&#123;df[valid_idx]&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>훈련데이터 :[ 1  2  3  4  6  7  8 10], 검증데이터 : [5 9]
+훈련데이터 :[1 3 4 5 6 7 8 9], 검증데이터 : [ 2 10]
+훈련데이터 :[ 1  2  3  4  5  6  9 10], 검증데이터 : [7 8]
+훈련데이터 :[ 2  4  5  6  7  8  9 10], 검증데이터 : [1 3]
+훈련데이터 :[ 1  2  3  5  7  8  9 10], 검증데이터 : [4 6]
+</code></pre>
+<ul>
+<li>교차 검증 함수</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_validate</span><br><span class="line">scores = cross_validate(dt, train_input, train_target)</span><br><span class="line"><span class="built_in">print</span>(scores)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;평균:&quot;</span>,np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#123;&#39;fit_time&#39;: array([0.01061797, 0.01001596, 0.01057696, 0.01032686, 0.00986886]), &#39;score_time&#39;: array([0.00118041, 0.00118399, 0.00116229, 0.00113297, 0.00111485]), &#39;test_score&#39;: array([0.86923077, 0.84615385, 0.87680462, 0.84889317, 0.83541867])&#125;
+평균: 0.855300214703487
+</code></pre>
+<ul>
+<li>StratifiedKFold 사용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold</span><br><span class="line">scores = cross_validate(dt, train_input, train_target, cv=StratifiedKFold())</span><br><span class="line"><span class="built_in">print</span>(scores)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;평균:&quot;</span>,np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#123;&#39;fit_time&#39;: array([0.01017427, 0.0070827 , 0.0073967 , 0.00732017, 0.0069654 ]), &#39;score_time&#39;: array([0.00081372, 0.00074744, 0.0007174 , 0.00073171, 0.00071931]), &#39;test_score&#39;: array([0.86923077, 0.84615385, 0.87680462, 0.84889317, 0.83541867])&#125;
+평균: 0.855300214703487
+</code></pre>
+<ul>
+<li>10폴드 교차 검증을 수행</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold</span><br><span class="line">splitter = StratifiedKFold(n_splits=<span class="number">10</span>, shuffle=<span class="literal">True</span>, random_state=<span class="number">42</span>) <span class="comment"># n_splits는 몇 폴드 교차 검증을 할지 정의</span></span><br><span class="line">scores = cross_validate(dt, train_input, train_target, cv=splitter)</span><br><span class="line"><span class="built_in">print</span>(scores)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;평균:&quot;</span>,np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#123;&#39;fit_time&#39;: array([0.01029015, 0.00815034, 0.00902534, 0.00820923, 0.0081687 ,
+       0.00809574, 0.0080421 , 0.00797629, 0.00809836, 0.00793672]), &#39;score_time&#39;: array([0.00072193, 0.00066876, 0.00071168, 0.00066352, 0.00067019,
+       0.0006609 , 0.00063467, 0.00062871, 0.00067377, 0.0006659 ]), &#39;test_score&#39;: array([0.83461538, 0.87884615, 0.85384615, 0.85384615, 0.84615385,
+       0.87307692, 0.85961538, 0.85549133, 0.85163776, 0.86705202])&#125;
+평균: 0.8574181117533719
+</code></pre>
+<h2 id="하이퍼파라미터-튜닝"><a href="#하이퍼파라미터-튜닝" class="headerlink" title="하이퍼파라미터 튜닝"></a>하이퍼파라미터 튜닝</h2><ul>
+<li>그리드 서치<ul>
+<li>사람이 수동적으로 입력</li>
+</ul>
+</li>
+<li>랜덤 서치<ul>
+<li>사람이 범위만 지정</li>
+</ul>
+</li>
+<li>베이지안 옵티마이제이션(bayesian optimization)</li>
+<li>AutoML : 사람의 개입 없이 하이퍼파라미터 튜닝을 자동으로 수행<ul>
+<li>ex) pycaret</li>
+</ul>
+</li>
+<li>각 모델마다 적게는 1-2개에서, 많게는 5-6개의 매개 변수를 제공한다<ul>
+<li>XGBoost 경우 100개정도가 있다</li>
+</ul>
+</li>
+<li>하이퍼파라미터와 동시에 교차검증을 수행<ul>
+<li>미친짓이다</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line">params=&#123;</span><br><span class="line">    <span class="string">&#x27;max_depth&#x27;</span> : [<span class="number">1</span>,<span class="number">3</span>,<span class="number">7</span>],</span><br><span class="line">    <span class="string">&#x27;min_impurity_decrease&#x27;</span>:[<span class="number">0.0001</span>,<span class="number">0.0002</span>,<span class="number">0.0003</span>,<span class="number">0.0004</span>,<span class="number">0.0005</span>]</span><br><span class="line">&#125;</span><br><span class="line">gs = GridSearchCV(DecisionTreeClassifier(random_state=<span class="number">42</span>), params,n_jobs=-<span class="number">1</span>)</span><br><span class="line">gs.fit(train_input, train_target)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>GridSearchCV(estimator=DecisionTreeClassifier(random_state=42), n_jobs=-1,
+             param_grid=&#123;&#39;max_depth&#39;: [1, 3, 7],
+                         &#39;min_impurity_decrease&#39;: [0.0001, 0.0002, 0.0003,
+                                                   0.0004, 0.0005]&#125;)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;best:&quot;</span>, gs.best_estimator_)</span><br><span class="line">dt = gs.best_estimator_</span><br></pre></td></tr></table></figure>
+
+<pre><code>best: DecisionTreeClassifier(max_depth=7, min_impurity_decrease=0.0005,
+                       random_state=42)
+</code></pre>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-01T00:00:00.000Z" title="2022. 7. 1. 오전 9:00:00">2022-07-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-01T03:08:32.180Z" title="2022. 7. 1. 오후 12:08:32">2022-07-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Lecture/">Lecture</a></span><span class="level-item">4 minutes read (About 608 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/01/day0701/">Day-11 Machine Learning</a></h1><div class="content"><h1 id="K최근접이웃회귀모델"><a href="#K최근접이웃회귀모델" class="headerlink" title="K최근접이웃회귀모델"></a>K최근접이웃회귀모델</h1><h2 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">perch_length = np.array(</span><br><span class="line">    [<span class="number">8.4</span>, <span class="number">13.7</span>, <span class="number">15.0</span>, <span class="number">16.2</span>, <span class="number">17.4</span>, <span class="number">18.0</span>, <span class="number">18.7</span>, <span class="number">19.0</span>, <span class="number">19.6</span>, <span class="number">20.0</span>, </span><br><span class="line">     <span class="number">21.0</span>, <span class="number">21.0</span>, <span class="number">21.0</span>, <span class="number">21.3</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.5</span>, </span><br><span class="line">     <span class="number">22.5</span>, <span class="number">22.7</span>, <span class="number">23.0</span>, <span class="number">23.5</span>, <span class="number">24.0</span>, <span class="number">24.0</span>, <span class="number">24.6</span>, <span class="number">25.0</span>, <span class="number">25.6</span>, <span class="number">26.5</span>, </span><br><span class="line">     <span class="number">27.3</span>, <span class="number">27.5</span>, <span class="number">27.5</span>, <span class="number">27.5</span>, <span class="number">28.0</span>, <span class="number">28.7</span>, <span class="number">30.0</span>, <span class="number">32.8</span>, <span class="number">34.5</span>, <span class="number">35.0</span>, </span><br><span class="line">     <span class="number">36.5</span>, <span class="number">36.0</span>, <span class="number">37.0</span>, <span class="number">37.0</span>, <span class="number">39.0</span>, <span class="number">39.0</span>, <span class="number">39.0</span>, <span class="number">40.0</span>, <span class="number">40.0</span>, <span class="number">40.0</span>, </span><br><span class="line">     <span class="number">40.0</span>, <span class="number">42.0</span>, <span class="number">43.0</span>, <span class="number">43.0</span>, <span class="number">43.5</span>, <span class="number">44.0</span>]</span><br><span class="line">     )</span><br><span class="line">perch_weight = np.array(</span><br><span class="line">    [<span class="number">5.9</span>, <span class="number">32.0</span>, <span class="number">40.0</span>, <span class="number">51.5</span>, <span class="number">70.0</span>, <span class="number">100.0</span>, <span class="number">78.0</span>, <span class="number">80.0</span>, <span class="number">85.0</span>, <span class="number">85.0</span>, </span><br><span class="line">     <span class="number">110.0</span>, <span class="number">115.0</span>, <span class="number">125.0</span>, <span class="number">130.0</span>, <span class="number">120.0</span>, <span class="number">120.0</span>, <span class="number">130.0</span>, <span class="number">135.0</span>, <span class="number">110.0</span>, </span><br><span class="line">     <span class="number">130.0</span>, <span class="number">150.0</span>, <span class="number">145.0</span>, <span class="number">150.0</span>, <span class="number">170.0</span>, <span class="number">225.0</span>, <span class="number">145.0</span>, <span class="number">188.0</span>, <span class="number">180.0</span>, </span><br><span class="line">     <span class="number">197.0</span>, <span class="number">218.0</span>, <span class="number">300.0</span>, <span class="number">260.0</span>, <span class="number">265.0</span>, <span class="number">250.0</span>, <span class="number">250.0</span>, <span class="number">300.0</span>, <span class="number">320.0</span>, </span><br><span class="line">     <span class="number">514.0</span>, <span class="number">556.0</span>, <span class="number">840.0</span>, <span class="number">685.0</span>, <span class="number">700.0</span>, <span class="number">700.0</span>, <span class="number">690.0</span>, <span class="number">900.0</span>, <span class="number">650.0</span>, </span><br><span class="line">     <span class="number">820.0</span>, <span class="number">850.0</span>, <span class="number">900.0</span>, <span class="number">1015.0</span>, <span class="number">820.0</span>, <span class="number">1100.0</span>, <span class="number">1000.0</span>, <span class="number">1100.0</span>, </span><br><span class="line">     <span class="number">1000.0</span>, <span class="number">1000.0</span>]</span><br><span class="line">     )</span><br><span class="line"><span class="built_in">print</span>(perch_length.shape, perch_weight.shape)</span><br></pre></td></tr></table></figure>
 
 <pre><code>(56,) (56,)
 </code></pre>
@@ -5218,171 +5512,7 @@ g
 
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ggplot<span class="punctuation">(</span>data<span class="operator">=</span>area_satisfaction<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>reorder<span class="punctuation">(</span>area<span class="punctuation">,</span>m<span class="punctuation">)</span><span class="punctuation">,</span>y<span class="operator">=</span>m<span class="punctuation">,</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">  geom_col<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">  labs<span class="punctuation">(</span></span><br><span class="line">    title <span class="operator">=</span> <span class="string">&quot;지역별 만족도&quot;</span><span class="punctuation">,</span></span><br><span class="line">    x <span class="operator">=</span> <span class="string">&quot;지역&quot;</span><span class="punctuation">,</span></span><br><span class="line">    y <span class="operator">=</span> <span class="string">&quot;만족도&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">)</span> <span class="operator">+</span> coord_flip<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 <p>s<br><img src="/images/day0624/unnamed-chunk-17-1.png"><!-- --></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-22T23:00:00.000Z" title="2022. 6. 23. 오전 8:00:00">2022-06-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-28T08:16:22.400Z" title="2022. 6. 28. 오후 5:16:22">2022-06-28</time></span><span class="level-item"><a class="link-muted" href="/categories/R/">R</a><span> / </span><a class="link-muted" href="/categories/R/Lecture/">Lecture</a></span><span class="level-item">7 minutes read (About 1010 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/23/day0623/">Day-5 Options In Visualization and Statistics</a></h1><div class="content"><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Options-In-Visualization"><a href="#Options-In-Visualization" class="headerlink" title="Options In Visualization"></a>Options In Visualization</h1><h2 id="col설정해주기"><a href="#col설정해주기" class="headerlink" title="col설정해주기"></a>col설정해주기</h2><ul>
-<li>+scale_color_manual(<br>  labels &#x3D; c(“칼럼명”)<br>  values &#x3D; c(“색”)<br>)</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ggplot<span class="punctuation">(</span>data<span class="operator">=</span>iris<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>Sepal.Length<span class="punctuation">,</span> y<span class="operator">=</span>Sepal.Width<span class="punctuation">,</span></span><br><span class="line">                      col<span class="operator">=</span>Species<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_point<span class="punctuation">(</span><span class="punctuation">)</span>  <span class="operator">+</span></span><br><span class="line">  scale_color_manual<span class="punctuation">(</span></span><br><span class="line">    labels <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;setosa&#x27;&quot;</span><span class="punctuation">,</span> <span class="string">&quot;versicolor&quot;</span><span class="punctuation">,</span> <span class="string">&quot;virginica&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">    values <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;red&quot;</span><span class="punctuation">,</span> <span class="string">&quot;blue&quot;</span><span class="punctuation">,</span> <span class="string">&quot;#F9A2C3&quot;</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-<p>images&#x2F;day0623<br><img src="/images/day0623/unnamed-chunk-2-1.png"><!-- --></p>
-<h2 id="테마설정해주기"><a href="#테마설정해주기" class="headerlink" title="테마설정해주기"></a>테마설정해주기</h2><ul>
-<li>+theme_종류</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ggplot<span class="punctuation">(</span>data<span class="operator">=</span>iris<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>Sepal.Length<span class="punctuation">,</span> y<span class="operator">=</span>Sepal.Width<span class="punctuation">,</span></span><br><span class="line">                      col<span class="operator">=</span>Species<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_point<span class="punctuation">(</span><span class="punctuation">)</span>  <span class="operator">+</span></span><br><span class="line">  theme_classic<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/day0623/unnamed-chunk-3-1.png"><!-- --></p>
-<h1 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h1><h2 id="기술통계"><a href="#기술통계" class="headerlink" title="기술통계"></a>기술통계</h2><ul>
-<li>평균, 최솟값, 최댓값, 중간값</li>
-</ul>
-<h2 id="추론통계-Inferential-Statistics"><a href="#추론통계-Inferential-Statistics" class="headerlink" title="추론통계(Inferential Statistics)"></a>추론통계(Inferential Statistics)</h2><ul>
-<li>변수 간의 관계를 파악 &#x2F; 새로운 사실들을 추정<ul>
-<li>평균 차이 검정<ul>
-<li>수치데이터     </li>
-<li>가설검정 : 그룹들 간의 평균의 차이를 검정</li>
-</ul>
-</li>
-<li>교차분석(&#x3D;빈도분석)(문자열)<ul>
-<li>범주데이터</li>
-<li>가설검정 : 각 범주별 빈도를 활용해서 관계성을 검정<br>-상관관계분석  </li>
-<li>수치데이터</li>
-<li>두 변수간의 상관관계가 있느냐</li>
-<li>-1&lt;&#x3D; r &lt;&#x3D; 1</li>
-<li>그래프를 그렸을때 우상향 : 양의관계, 우하향 : 음의관계</li>
-<li>0에 수렴할수록 상관관계가 없다.</li>
-<li>-1, 1에 수렴할수록 상관관계가 높다.</li>
-</ul>
-</li>
-<li>단순회귀분석<br>-수치데이터<ul>
-<li>y&#x3D; ax + b<ul>
-<li>b&#x3D; 상수항</li>
-<li>가설검정 : x값(독립변수)이 y값(종속변수)에 영향을 주느냐</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Hypothesis"><a href="#Hypothesis" class="headerlink" title="Hypothesis"></a>Hypothesis</h2><h3 id="귀무가설"><a href="#귀무가설" class="headerlink" title="귀무가설"></a>귀무가설</h3><ul>
-<li>두 그룹간의 평균 차이가 없다.</li>
-</ul>
-<h3 id="대립가설"><a href="#대립가설" class="headerlink" title="대립가설"></a>대립가설</h3><ul>
-<li>두 그룹간의 평균 차이가 있다.</li>
-</ul>
-<h3 id="유의수준"><a href="#유의수준" class="headerlink" title="유의수준"></a>유의수준</h3><ul>
-<li>허용할 수 있는 오류(예외) 범위</li>
-<li>p-value(p)</li>
-<li>가설 검정에서 인정하는 유의 수준</li>
-<li>5%, 1%, 0.1% 또는 10% </li>
-<li>오차범위내에 있다 &lt;-평균차이가 없다 &lt;- 다음에 했을 때 바뀔 가능성이 있다</li>
-<li>오차범위밖에 있다 &lt;-평균차이가 있다 &lt;- 몇번을 해도 똑같다</li>
-</ul>
-<h3 id="t-test-모수검정"><a href="#t-test-모수검정" class="headerlink" title="t.test (모수검정)"></a>t.test (모수검정)</h3><ul>
-<li>어떻게 데이터를 입력하는지 확인</li>
-<li>p-value 위주로 확인하면된다<ul>
-<li>0.05 이상 : 귀무가설, 0.05이내 : 대립가설</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpg1 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;data/mpg1.csv&quot;</span><span class="punctuation">,</span> stringsAsFactors <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>시각화</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>mpg1<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> trans<span class="punctuation">,</span> y <span class="operator">=</span> cty<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_boxplot<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/day0623/unnamed-chunk-5-1.png"><!-- --></p>
-<ul>
-<li>t.test 검정</li>
-</ul>
-<ul>
-<li>귀무가설 : auto와 manual의 cty 평균은 차이가 없다.</li>
-<li>대립가설 : auto와 manual의 cty 평균은 차이가 있다.</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.test<span class="punctuation">(</span>data <span class="operator">=</span> mpg1<span class="punctuation">,</span> cty <span class="operator">~</span> trans<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## 	Welch Two Sample t-test</span><br><span class="line">## </span><br><span class="line">## data:  cty by trans</span><br><span class="line">## t = -4.5375, df = 132.32, p-value = 1.263e-05</span><br><span class="line">## alternative hypothesis: true difference in means between group auto and group manual is not equal to 0</span><br><span class="line">## 95 percent confidence interval:</span><br><span class="line">##  -3.887311 -1.527033</span><br><span class="line">## sample estimates:</span><br><span class="line">##   mean in group auto mean in group manual </span><br><span class="line">##             15.96815             18.67532</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (종속변수 ~ 독립변수)</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>두 그룹의 평균 차이 검정<ul>
-<li>사전 필수 검증</li>
-<li>등분산 검정 : 두 그룹간의 분산 정도를 비교<ul>
-<li>두 그룹간의 분산이 비슷하면 –&gt; t.test(모수 검정)</li>
-<li>두 그룹간의 분산이 다르면 –&gt; 비모수 검정</li>
-<li>귀무가설 : 두 그룹간의 분산이 비슷하다.<ul>
-<li>p.value &gt; 0.05</li>
-</ul>
-</li>
-<li>대립가설 : 두 그룹간의 분산이 다르다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var.test<span class="punctuation">(</span>data <span class="operator">=</span> mpg1<span class="punctuation">,</span> cty<span class="operator">~</span>trans<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## 	F test to compare two variances</span><br><span class="line">## </span><br><span class="line">## data:  cty by trans</span><br><span class="line">## F = 0.73539, num df = 156, denom df = 76, p-value = 0.1101</span><br><span class="line">## alternative hypothesis: true ratio of variances is not equal to 1</span><br><span class="line">## 95 percent confidence interval:</span><br><span class="line">##  0.4912917 1.0719468</span><br><span class="line">## sample estimates:</span><br><span class="line">## ratio of variances </span><br><span class="line">##          0.7353887</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ggplot<span class="punctuation">(</span>mpg1<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>cty<span class="punctuation">,</span> fill<span class="operator">=</span>trans<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_density<span class="punctuation">(</span>alpha<span class="operator">=</span><span class="number">0.5</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/day0623/unnamed-chunk-8-1.png"><!-- --></p>
-<h3 id="교차분석"><a href="#교차분석" class="headerlink" title="교차분석"></a>교차분석</h3><ul>
-<li>범주형 변수들이 관계가 있다는 것을 검정</li>
-<li>비율에 차이가 있는지 검정</li>
-<li>r의 chisq.test() 함수로 진행</li>
-<li>ex)<ul>
-<li>귀무가설 : trans에 따라 drv(4, f, r)의 (비율)차이가 없다.</li>
-<li>대립가설 : trans에 따라 drv의 차이가 있다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table<span class="punctuation">(</span>mpg1<span class="operator">$</span>trans<span class="punctuation">,</span> mpg1<span class="operator">$</span>drv<span class="punctuation">)</span> <span class="comment"># 교차분석</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##         </span><br><span class="line">##           4  f  r</span><br><span class="line">##   auto   75 65 17</span><br><span class="line">##   manual 28 41  8</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prop.table<span class="punctuation">(</span>table<span class="punctuation">(</span>mpg1<span class="operator">$</span>trans<span class="punctuation">,</span> mpg1<span class="operator">$</span>drv<span class="punctuation">)</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span> <span class="comment"># 비율 분석</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##         </span><br><span class="line">##                  4         f         r</span><br><span class="line">##   auto   0.4777070 0.4140127 0.1082803</span><br><span class="line">##   manual 0.3636364 0.5324675 0.1038961</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chisq.test<span class="punctuation">(</span>mpg1<span class="operator">$</span>trans<span class="punctuation">,</span> mpg1<span class="operator">$</span>drv<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## 	Pearson&#x27;s Chi-squared test</span><br><span class="line">## </span><br><span class="line">## data:  mpg1$trans and mpg1$drv</span><br><span class="line">## X-squared = 3.1368, df = 2, p-value = 0.2084</span><br></pre></td></tr></table></figure>
-
-<h3 id="상관관계분석"><a href="#상관관계분석" class="headerlink" title="상관관계분석"></a>상관관계분석</h3><ul>
-<li>r 의 cor.test()함수로 진행</li>
-<li>cor값이 1에 가까울수록 높은 상관관계이다.</li>
-<li>cor : 상관계수</li>
-<li>ex)<ul>
-<li>귀무가설 : cty와 hwy는 상관관계가 없다.</li>
-<li>대립가설 : cty와 hwy는 상관관계가 있다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cor.test<span class="punctuation">(</span>mpg1<span class="operator">$</span>cty<span class="punctuation">,</span> mpg1<span class="operator">$</span>hwy<span class="punctuation">)</span> </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## 	Pearson&#x27;s product-moment correlation</span><br><span class="line">## </span><br><span class="line">## data:  mpg1$cty and mpg1$hwy</span><br><span class="line">## t = 49.585, df = 232, p-value &lt; 2.2e-16</span><br><span class="line">## alternative hypothesis: true correlation is not equal to 0</span><br><span class="line">## 95 percent confidence interval:</span><br><span class="line">##  0.9433129 0.9657663</span><br><span class="line">## sample estimates:</span><br><span class="line">##       cor </span><br><span class="line">## 0.9559159</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p의 값이 0.05보다 낮으니 대립가설이다</span></span><br><span class="line"><span class="comment"># r=96 </span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">Previous</a></div><div class="pagination-next"><a href="/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="JungBear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JungBear</p><p class="is-size-6 is-block">Blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>In Your Heart</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">24</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/JungBear" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/JungBear"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Development-Settings/"><span class="level-start"><span class="level-item">Development Settings</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Oracle/"><span class="level-start"><span class="level-item">Oracle</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Oracle/lecture/"><span class="level-start"><span class="level-item">lecture</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">16</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Assignment/"><span class="level-start"><span class="level-item">Assignment</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Kaggle/"><span class="level-start"><span class="level-item">Kaggle</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/R/"><span class="level-start"><span class="level-item">R</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/R/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-19T00:00:00.000Z">2022-07-19</time></p><p class="title"><a href="/2022/07/19/day0719/">Day-19 Oracle Development Settings</a></p><p class="categories"><a href="/categories/Development-Settings/">Development Settings</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-19T00:00:00.000Z">2022-07-19</time></p><p class="title"><a href="/2022/07/19/day0719_oracle/">Day-19 Oracle Basic</a></p><p class="categories"><a href="/categories/Oracle/">Oracle</a> / <a href="/categories/Oracle/lecture/">lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-18T00:00:00.000Z">2022-07-18</time></p><p class="title"><a href="/2022/07/18/day0718/">Day-18 MLFlow in MLOps</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-11T00:00:00.000Z">2022-07-11</time></p><p class="title"><a href="/2022/07/11/day0711/">Day-17 Kaggle Competion</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Kaggle/">Kaggle</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-08T00:00:00.000Z">2022-07-08</time></p><p class="title"><a href="/2022/07/08/day0708/">Day-16 Kaggle Bike Sharing </a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Kaggle/">Kaggle</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">JungBear&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 JungBear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">Previous</a></div><div class="pagination-next"><a href="/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="JungBear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JungBear</p><p class="is-size-6 is-block">Blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>In Your Heart</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">25</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/JungBear" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/JungBear"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Development-Settings/"><span class="level-start"><span class="level-item">Development Settings</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Oracle/"><span class="level-start"><span class="level-item">Oracle</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Oracle/lecture/"><span class="level-start"><span class="level-item">lecture</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">16</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Assignment/"><span class="level-start"><span class="level-item">Assignment</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Kaggle/"><span class="level-start"><span class="level-item">Kaggle</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/R/"><span class="level-start"><span class="level-item">R</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/R/Lecture/"><span class="level-start"><span class="level-item">Lecture</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-19T00:00:00.000Z">2022-07-19</time></p><p class="title"><a href="/2022/07/19/day0719/">Day-19 Oracle Development Settings</a></p><p class="categories"><a href="/categories/Development-Settings/">Development Settings</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-19T00:00:00.000Z">2022-07-19</time></p><p class="title"><a href="/2022/07/19/day0719_oracle/">Day-19 Oracle Basic</a></p><p class="categories"><a href="/categories/Oracle/">Oracle</a> / <a href="/categories/Oracle/lecture/">lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-19T00:00:00.000Z">2022-07-19</time></p><p class="title"><a href="/2022/07/19/sql_devel/">Day-19 SQL Developer</a></p><p class="categories"><a href="/categories/Development-Settings/">Development Settings</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-18T00:00:00.000Z">2022-07-18</time></p><p class="title"><a href="/2022/07/18/day0718/">Day-18 MLFlow in MLOps</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Lecture/">Lecture</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-11T00:00:00.000Z">2022-07-11</time></p><p class="title"><a href="/2022/07/11/day0711/">Day-17 Kaggle Competion</a></p><p class="categories"><a href="/categories/Python/">Python</a> / <a href="/categories/Python/Kaggle/">Kaggle</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">JungBear&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 JungBear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
